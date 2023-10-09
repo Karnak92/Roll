@@ -1,0 +1,72 @@
+﻿@*@model IEnumerable<Roll.asoc_personaje_item>*@
+@model Roll.Models.asoc_personaje_item_filtro
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <div class="form-group">
+        @Html.LabelFor(model => model.id_personaje, "Nombre", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("id_personaje", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.id_personaje, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <table class="table" id="tabla_asignacion_item_pj">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.cantidad)*@
+                Cantidad
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.equipado)*@
+                Equipado
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.items.item_nombre)*@
+                Objeto
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.personajes.nombre)*@
+                Personaje
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.lista)
+        {
+            <tr id_pj="@Html.DisplayFor(modelItem => item.personajes.id)" class="filtrado">
+                <td>
+                    @Html.DisplayFor(modelItem => item.cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.equipado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.items.item_nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.personajes.nombre)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id_asoc }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id_asoc }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id_asoc })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

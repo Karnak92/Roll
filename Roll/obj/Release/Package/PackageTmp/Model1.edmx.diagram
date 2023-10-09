@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dc009dcd0a63487eb713acdff6123656" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="RollModel.asoc_personaje_item" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RollModel.asoc_personaje_skill" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RollModel.atributo" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RollModel.clases" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="RollModel.estado" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RollModel.items" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RollModel.personajes" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RollModel.razas" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RollModel.skill" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <AssociationConnector Association="RollModel.FK_asoc_personaje_item_items" ManuallyRouted="false" />
+        <AssociationConnector Association="RollModel.FK_asoc_personaje_item_personajes" ManuallyRouted="false" />
+        <AssociationConnector Association="RollModel.FK_asoc_personaje_skill_asoc_personaje_skill" ManuallyRouted="false" />
+        <AssociationConnector Association="RollModel.FK_asoc_personaje_skill_skill" ManuallyRouted="false" />
+        <AssociationConnector Association="RollModel.FK_personajes_atributo" ManuallyRouted="false" />
+        <AssociationConnector Association="RollModel.FK_personajes_clases" ManuallyRouted="false" />
+        <AssociationConnector Association="RollModel.FK_personajes_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="RollModel.FK_personajes_razas" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RollModel.leveleo" Width="1.5" PointX="5.25" PointY="8.125" />
+        <AssociationConnector Association="RollModel.FK_leveleo_personajes" />
+        <EntityTypeShape EntityType="RollModel.monstruos" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RollModel.encuentro" Width="1.5" PointX="7.375" PointY="5.75" />
+        <EntityTypeShape EntityType="RollModel.party_mon_cabecera" Width="1.5" PointX="7.375" PointY="11" />
+        <EntityTypeShape EntityType="RollModel.party_mon" Width="1.5" PointX="9.625" PointY="1.375" />
+        <AssociationConnector Association="RollModel.FK_party_mon_monstruos" />
+        <AssociationConnector Association="RollModel.FK_party_mon_party_mon_cabecera" />
+        <EntityTypeShape EntityType="RollModel.party_cabecera" Width="1.5" PointX="6" PointY="13.25" />
+        <EntityTypeShape EntityType="RollModel.party" Width="1.5" PointX="8.25" PointY="8.125" />
+        <AssociationConnector Association="RollModel.FK_party_party_cabecera" />
+        <AssociationConnector Association="RollModel.FK_party_personajes" />
+        <AssociationConnector Association="RollModel.FK_encuentro_party_cabecera" />
+        <AssociationConnector Association="RollModel.FK_encuentro_party_mon_cabecera" />
+        <AssociationConnector Association="RollModel.FK_party_mon_estado" />
+        <EntityTypeShape EntityType="RollModel.mochilas" Width="1.5" PointX="9" PointY="15.25" />
+        <EntityTypeShape EntityType="RollModel.asoc_personaje_mochila" Width="1.5" PointX="11.25" PointY="6.25" />
+        <AssociationConnector Association="RollModel.FK_asoc_personaje_mochila_mochilas" />
+        <AssociationConnector Association="RollModel.FK_asoc_personaje_mochila_personajes" />
+        <EntityTypeShape EntityType="RollModel.mascotas" Width="1.5" PointX="5.25" PointY="16.5" />
+        <AssociationConnector Association="RollModel.FK_mascotas_personajes" />
+        <AssociationConnector Association="RollModel.FK_mascotas_monstruos" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

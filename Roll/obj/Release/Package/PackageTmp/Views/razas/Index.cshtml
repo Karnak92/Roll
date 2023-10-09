@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Roll.razas>
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @*Html.ActionLink("Create New", "Create")*@
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Aspecto
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.raza_nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.raza_fuerza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.raza_inteligencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.raza_sabiduria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.raza_agilidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.raza_resistencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.raza_mult_vida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.raza_aspecto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.raza_afinidad_dioses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.raza_caracteristicas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.raza_atributos)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            <img class="casco_img" src="~/Imagenes/razas/@Html.DisplayFor(modelItem => item.raza_imagen)" alt="" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raza_nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raza_fuerza)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raza_inteligencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raza_sabiduria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raza_agilidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raza_resistencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raza_mult_vida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raza_aspecto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raza_afinidad_dioses)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raza_caracteristicas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raza_atributos)
+        </td>
+        <td>
+            @*Html.ActionLink("Edit", "Edit", new { id = item.id_raza }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id_raza }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id_raza })*@
+        </td>
+    </tr>
+    }
+    
+    </table>
+</body>
+</html>

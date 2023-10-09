@@ -1,0 +1,191 @@
+﻿@model Roll.Models.encuentro_modelo
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @*filtros*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.tier, "tier", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("tier", null, htmlAttributes: new { @class = "form-control " })
+                @Html.ValidationMessageFor(model => model.tier, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Nombre Monstruo</label>
+            <div class="col-md-10">
+                <input type="text" id="filtro_mon_nombre" value="" class="form-control" placeholder="Filtro..." />
+            </div>
+        </div>
+    </div>
+    <div>
+        <table id="filtro_mon_encuentros" class="scrolldown">
+            <tr>
+                <th>
+                    nombre
+                </th>
+                <th>
+                    foto
+                </th>
+                <th>
+                    descripcion
+                </th>
+
+                <th>
+                    cantidad
+                </th>
+                <th>
+                    seleccionar
+                </th>
+            </tr>
+
+            @foreach (var item in Model.listado_filtro)
+            {
+                <tr tier="@item.tier" nombre="@item.nombre" class="filtrado">
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.tier)*@
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                    <td>
+                        <img class="casco_img" src="~/Imagenes/monstruos/@item.nombre_imagen" alt="@Html.DisplayFor(modelItem => item.nombre)" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.descripcion)
+                    </td>
+                    <td>
+                        <input type="number" class="cantidad_listado" id="cantidad_mon_@item.mon_id" value="0" />
+                        @*@Html.ActionLink("Edit", "Edit", new { id=item.mon_id }) |*@
+                        @*@Html.ActionLink("Details", "Details", new { id = item.mon_id }) |*@
+                        @*@Html.ActionLink("Delete", "Delete", new { id=item.mon_id })*@
+                    </td>
+                    <td>
+                        <button id="" class="btn_mon_select" id_item="@item.mon_id">Usar</button>
+                        @*@Html.ActionLink("Edit", "Edit", new { id=item.mon_id }) |*@
+                        @*@Html.ActionLink("Details", "Details", new { id = item.mon_id }) |*@
+                        @*@Html.ActionLink("Delete", "Delete", new { id=item.mon_id })*@
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-5">
+            <table id="tabla_party" class="scrolldown ">
+                <tr>
+                    <th>
+                        nombre
+                    </th>
+                    <th>
+                        foto
+                    </th>
+                    <th>
+                        parametros
+                    </th>
+
+                    <th>
+                        estado
+                    </th>
+
+                </tr>
+
+                @foreach (var item in Model.listado_party)
+                {
+                    <tr id_pj="@item.id_pj" class="personaje_seleccion">
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.tier)*@
+                            @Html.DisplayFor(modelItem => item.personajes.nombre)
+                        </td>
+                        <td>
+                            <img class="casco_img" src="~/Imagenes/personajes/@item.personajes.imagen" alt="" />
+                        </td>
+                        <td>
+                            vida @Html.DisplayFor(modelItem => item.personajes.vida_actual)/@Html.DisplayFor(modelItem => item.personajes.vida_real)
+                            <br />
+
+                            mana @Html.DisplayFor(modelItem => item.personajes.energia_actual)/@Html.DisplayFor(modelItem => item.personajes.energia_real)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.personajes.estado1.est_nombre)
+
+                            @*<button id="" class="btn_mon_select" id_item="@item.mon_id">Usar</button>*@
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+            <table id="tabla_mon" class="scrolldown">
+                <tr>
+                    <th>
+                        nombre
+                    </th>
+                    <th>
+                        foto
+                    </th>
+                    <th>
+                        parametros
+                    </th>
+                    <th>
+                        estado
+                    </th>
+                    <th>
+                        eliminar
+                    </th>
+
+                </tr>
+
+                @foreach (var item in Model.listado_party_mon)
+                {
+                <tr>
+                    <td id_mon="@item.id" class="mon_seleccion">
+                        @*@Html.DisplayFor(modelItem => item.tier)*@
+                        @Html.DisplayFor(modelItem => item.monstruos.nombre)
+                    </td>
+                    <td id_mon="@item.id" class="mon_seleccion">
+                        <img class="casco_img" src="~/Imagenes/monstruos/@item.monstruos.nombre_imagen" alt="" />
+                    </td>
+                    <td id_mon="@item.id" class="mon_seleccion">
+                        vida @Html.DisplayFor(modelItem => item.vida_actual)/@Html.DisplayFor(modelItem => item.vida_max)
+                        <br />
+                        mana @Html.DisplayFor(modelItem => item.mana_actual)/@Html.DisplayFor(modelItem => item.mana_max)
+                    </td>
+                    <td id_mon="@item.id" class="mon_seleccion">
+                        @Html.DisplayFor(modelItem => item.estado.est_nombre)
+                    </td>
+
+                    <td>
+                        <button id="" class="btn_mon_borrar btn_mas_menos" id_mon="@item.id">X</button>
+                    </td>
+
+                </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+
+    <div class="popup">
+        <a href="#" class="close">X</a>
+        <iframe id="ventana" class="iframe_personalizado" src="">
+        </iframe>
+
+    </div>
+        
+    
+</body>
+</html>

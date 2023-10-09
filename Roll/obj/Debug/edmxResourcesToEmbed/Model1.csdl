@@ -1,0 +1,1015 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RollModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="asoc_personaje_item">
+    <Key>
+      <PropertyRef Name="id_asoc" />
+    </Key>
+    <Property Name="id_asoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_personaje" Type="Int32" Nullable="false" />
+    <Property Name="id_item" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="items" Relationship="Self.FK_asoc_personaje_item_items" FromRole="asoc_personaje_item" ToRole="items" />
+    <NavigationProperty Name="personajes" Relationship="Self.FK_asoc_personaje_item_personajes" FromRole="asoc_personaje_item" ToRole="personajes" />
+    <Property Name="equipado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="asoc_personaje_skill">
+    <Key>
+      <PropertyRef Name="id_asoc" />
+    </Key>
+    <Property Name="id_asoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_personaje" Type="Int32" Nullable="false" />
+    <Property Name="id_skill" Type="Int32" Nullable="false" />
+    <Property Name="usos" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="personajes" Relationship="Self.FK_asoc_personaje_skill_asoc_personaje_skill" FromRole="asoc_personaje_skill" ToRole="personajes" />
+    <NavigationProperty Name="skill" Relationship="Self.FK_asoc_personaje_skill_skill" FromRole="asoc_personaje_skill" ToRole="skill" />
+  </EntityType>
+  <EntityType Name="atributo">
+    <Key>
+      <PropertyRef Name="id_atributo" />
+    </Key>
+    <Property Name="id_atributo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="atributo_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="personajes" Relationship="Self.FK_personajes_atributo" FromRole="atributo" ToRole="personajes" />
+  </EntityType>
+  <EntityType Name="clases">
+    <Key>
+      <PropertyRef Name="id_clase" />
+    </Key>
+    <Property Name="id_clase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clas_nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="clas_fuerza" Type="Double" />
+    <Property Name="clas_inteligencia" Type="Double" />
+    <Property Name="clas_sabiduria" Type="Double" />
+    <Property Name="clas_agilidad" Type="Double" />
+    <Property Name="clas_resistencia" Type="Double" />
+    <Property Name="clas_aspecto" Type="Double" />
+    <Property Name="clas_descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="personajes" Relationship="Self.FK_personajes_clases" FromRole="clases" ToRole="personajes" />
+    <Property Name="clas_imagen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="estado">
+    <Key>
+      <PropertyRef Name="id_estado" />
+    </Key>
+    <Property Name="id_estado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="est_nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="est_descrip" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="personajes" Relationship="Self.FK_personajes_estado" FromRole="estado" ToRole="personajes" />
+    <NavigationProperty Name="party_mon" Relationship="RollModel.FK_party_mon_estado" FromRole="estado" ToRole="party_mon" />
+  </EntityType>
+  <EntityType Name="items">
+    <Key>
+      <PropertyRef Name="id_item" />
+    </Key>
+    <Property Name="id_item" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item_nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="item_categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="item_descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="item_bonificacion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="asoc_personaje_item" Relationship="Self.FK_asoc_personaje_item_items" FromRole="items" ToRole="asoc_personaje_item" />
+    <Property Name="item_atk" Type="Double" />
+    <Property Name="item_mag_atk" Type="Double" />
+    <Property Name="item_def" Type="Double" />
+    <Property Name="item_mag_def" Type="Double" />
+    <Property Name="item_clasificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="item_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="item_imagen_nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="peso" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+    <Property Name="item_tier" Type="Int32" />
+  </EntityType>
+  <EntityType Name="personajes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nivel" Type="Int32" />
+    <Property Name="raza" Type="Int32" />
+    <Property Name="clase" Type="Int32" />
+    <Property Name="atributo" Type="Int32" />
+    <Property Name="vida_real" Type="Int32" />
+    <Property Name="energia_real" Type="Int32" />
+    <Property Name="atk" Type="Int32" />
+    <Property Name="mag_atk" Type="Int32" />
+    <Property Name="armor" Type="Int32" />
+    <Property Name="mr" Type="Int32" />
+    <Property Name="oro" Type="Int32" />
+    <Property Name="plata" Type="Int32" />
+    <Property Name="cobre" Type="Int32" />
+    <Property Name="vida_actual" Type="Int32" />
+    <Property Name="energia_actual" Type="Int32" />
+    <Property Name="fuerza_inicial" Type="Int32" />
+    <Property Name="fuerza_real" Type="Int32" />
+    <Property Name="fuerza_actual" Type="Int32" />
+    <Property Name="intel_ini" Type="Int32" />
+    <Property Name="intel_real" Type="Int32" />
+    <Property Name="intel_actual" Type="Int32" />
+    <Property Name="sab_ini" Type="Int32" />
+    <Property Name="sab_real" Type="Int32" />
+    <Property Name="sab_actual" Type="Int32" />
+    <Property Name="agi_ini" Type="Int32" />
+    <Property Name="agi_real" Type="Int32" />
+    <Property Name="agi_actual" Type="Int32" />
+    <Property Name="res_ini" Type="Int32" />
+    <Property Name="res_real" Type="Int32" />
+    <Property Name="res_actual" Type="Int32" />
+    <Property Name="velocidad_ini" Type="Int32" />
+    <Property Name="velocidad_real" Type="Int32" />
+    <Property Name="velocidad_actual" Type="Int32" />
+    <Property Name="estado" Type="Int32" />
+    <Property Name="habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="asoc_personaje_item" Relationship="Self.FK_asoc_personaje_item_personajes" FromRole="personajes" ToRole="asoc_personaje_item" />
+    <NavigationProperty Name="asoc_personaje_skill" Relationship="Self.FK_asoc_personaje_skill_asoc_personaje_skill" FromRole="personajes" ToRole="asoc_personaje_skill" />
+    <NavigationProperty Name="atributo1" Relationship="Self.FK_personajes_atributo" FromRole="personajes" ToRole="atributo" />
+    <NavigationProperty Name="clases" Relationship="Self.FK_personajes_clases" FromRole="personajes" ToRole="clases" />
+    <NavigationProperty Name="estado1" Relationship="Self.FK_personajes_estado" FromRole="personajes" ToRole="estado" />
+    <NavigationProperty Name="razas" Relationship="Self.FK_personajes_razas" FromRole="personajes" ToRole="razas" />
+    <NavigationProperty Name="leveleo" Relationship="RollModel.FK_leveleo_personajes" FromRole="personajes" ToRole="leveleo" />
+    <NavigationProperty Name="party" Relationship="RollModel.FK_party_personajes" FromRole="personajes" ToRole="party" />
+    <Property Name="imagen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="asoc_personaje_mochila" Relationship="RollModel.FK_asoc_personaje_mochila_personajes" FromRole="personajes" ToRole="asoc_personaje_mochila" />
+    <NavigationProperty Name="mascotas" Relationship="RollModel.FK_mascotas_personajes" FromRole="personajes" ToRole="mascotas" />
+  </EntityType>
+  <EntityType Name="razas">
+    <Key>
+      <PropertyRef Name="id_raza" />
+    </Key>
+    <Property Name="id_raza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="raza_nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="raza_fuerza" Type="Double" />
+    <Property Name="raza_inteligencia" Type="Double" />
+    <Property Name="raza_sabiduria" Type="Double" />
+    <Property Name="raza_agilidad" Type="Double" />
+    <Property Name="raza_resistencia" Type="Double" />
+    <Property Name="raza_mult_vida" Type="Double" />
+    <Property Name="raza_aspecto" Type="Double" />
+    <Property Name="raza_afinidad_dioses" Type="Double" />
+    <Property Name="raza_caracteristicas" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="raza_atributos" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="personajes" Relationship="Self.FK_personajes_razas" FromRole="razas" ToRole="personajes" />
+    <Property Name="raza_imagen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="skill">
+    <Key>
+      <PropertyRef Name="id_skill" />
+    </Key>
+    <Property Name="id_skill" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="skill_nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="skill_nivel" Type="Double" />
+    <Property Name="skill_tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="skill_atributo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="skill_costo" Type="Double" />
+    <Property Name="skill_tipo_efecto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="skill_danio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="skill_dado_basico" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="skill_requisito" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="skill_alineamiento" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="asoc_personaje_skill" Relationship="Self.FK_asoc_personaje_skill_skill" FromRole="skill" ToRole="asoc_personaje_skill" />
+  </EntityType>
+  <Association Name="FK_asoc_personaje_item_items">
+    <End Role="items" Type="Self.items" Multiplicity="1" />
+    <End Role="asoc_personaje_item" Type="Self.asoc_personaje_item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="id_item" />
+      </Principal>
+      <Dependent Role="asoc_personaje_item">
+        <PropertyRef Name="id_item" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_asoc_personaje_item_personajes">
+    <End Role="personajes" Type="Self.personajes" Multiplicity="1" />
+    <End Role="asoc_personaje_item" Type="Self.asoc_personaje_item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personajes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="asoc_personaje_item">
+        <PropertyRef Name="id_personaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_asoc_personaje_skill_asoc_personaje_skill">
+    <End Role="personajes" Type="Self.personajes" Multiplicity="1" />
+    <End Role="asoc_personaje_skill" Type="Self.asoc_personaje_skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personajes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="asoc_personaje_skill">
+        <PropertyRef Name="id_personaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_asoc_personaje_skill_skill">
+    <End Role="skill" Type="Self.skill" Multiplicity="1" />
+    <End Role="asoc_personaje_skill" Type="Self.asoc_personaje_skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="skill">
+        <PropertyRef Name="id_skill" />
+      </Principal>
+      <Dependent Role="asoc_personaje_skill">
+        <PropertyRef Name="id_skill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personajes_atributo">
+    <End Role="atributo" Type="Self.atributo" Multiplicity="0..1" />
+    <End Role="personajes" Type="Self.personajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="atributo">
+        <PropertyRef Name="id_atributo" />
+      </Principal>
+      <Dependent Role="personajes">
+        <PropertyRef Name="atributo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personajes_clases">
+    <End Role="clases" Type="Self.clases" Multiplicity="0..1" />
+    <End Role="personajes" Type="Self.personajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clases">
+        <PropertyRef Name="id_clase" />
+      </Principal>
+      <Dependent Role="personajes">
+        <PropertyRef Name="clase" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personajes_estado">
+    <End Role="estado" Type="Self.estado" Multiplicity="0..1" />
+    <End Role="personajes" Type="Self.personajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estado">
+        <PropertyRef Name="id_estado" />
+      </Principal>
+      <Dependent Role="personajes">
+        <PropertyRef Name="estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personajes_razas">
+    <End Role="razas" Type="Self.razas" Multiplicity="0..1" />
+    <End Role="personajes" Type="Self.personajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="razas">
+        <PropertyRef Name="id_raza" />
+      </Principal>
+      <Dependent Role="personajes">
+        <PropertyRef Name="raza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RollEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="asoc_personaje_item" EntityType="Self.asoc_personaje_item" />
+    <EntitySet Name="asoc_personaje_skill" EntityType="Self.asoc_personaje_skill" />
+    <EntitySet Name="atributo" EntityType="Self.atributo" />
+    <EntitySet Name="clases" EntityType="Self.clases" />
+    <EntitySet Name="estado" EntityType="Self.estado" />
+    <EntitySet Name="items" EntityType="Self.items" />
+    <EntitySet Name="personajes" EntityType="Self.personajes" />
+    <EntitySet Name="razas" EntityType="Self.razas" />
+    <EntitySet Name="skill" EntityType="Self.skill" />
+    <AssociationSet Name="FK_asoc_personaje_item_items" Association="Self.FK_asoc_personaje_item_items">
+      <End Role="items" EntitySet="items" />
+      <End Role="asoc_personaje_item" EntitySet="asoc_personaje_item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_asoc_personaje_item_personajes" Association="Self.FK_asoc_personaje_item_personajes">
+      <End Role="personajes" EntitySet="personajes" />
+      <End Role="asoc_personaje_item" EntitySet="asoc_personaje_item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_asoc_personaje_skill_asoc_personaje_skill" Association="Self.FK_asoc_personaje_skill_asoc_personaje_skill">
+      <End Role="personajes" EntitySet="personajes" />
+      <End Role="asoc_personaje_skill" EntitySet="asoc_personaje_skill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_asoc_personaje_skill_skill" Association="Self.FK_asoc_personaje_skill_skill">
+      <End Role="skill" EntitySet="skill" />
+      <End Role="asoc_personaje_skill" EntitySet="asoc_personaje_skill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personajes_atributo" Association="Self.FK_personajes_atributo">
+      <End Role="atributo" EntitySet="atributo" />
+      <End Role="personajes" EntitySet="personajes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personajes_clases" Association="Self.FK_personajes_clases">
+      <End Role="clases" EntitySet="clases" />
+      <End Role="personajes" EntitySet="personajes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personajes_estado" Association="Self.FK_personajes_estado">
+      <End Role="estado" EntitySet="estado" />
+      <End Role="personajes" EntitySet="personajes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personajes_razas" Association="Self.FK_personajes_razas">
+      <End Role="razas" EntitySet="razas" />
+      <End Role="personajes" EntitySet="personajes" />
+    </AssociationSet>
+    <FunctionImport Name="economia">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="tipo" Mode="In" Type="String" />
+      <Parameter Name="oro" Mode="In" Type="Int32" />
+      <Parameter Name="plata" Mode="In" Type="Int32" />
+      <Parameter Name="cobre" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="estadistica_update_actual">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="estadistica" Mode="In" Type="String" />
+      <Parameter Name="valor_nuevo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="estadistica_update_real">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="estadistica" Mode="In" Type="String" />
+      <Parameter Name="valor_nuevo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="lvl_up">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="fuerza" Mode="In" Type="Int32" />
+      <Parameter Name="inteligencia" Mode="In" Type="Int32" />
+      <Parameter Name="sabiduria" Mode="In" Type="Int32" />
+      <Parameter Name="agilidad" Mode="In" Type="Int32" />
+      <Parameter Name="resistencia" Mode="In" Type="Int32" />
+      <Parameter Name="velocidad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="personaje_insert">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="raza" Mode="In" Type="Int32" />
+      <Parameter Name="clase" Mode="In" Type="Int32" />
+      <Parameter Name="atributo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="personajes_delete">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="personajes_update">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="nivel" Mode="In" Type="Int32" />
+      <Parameter Name="raza" Mode="In" Type="Int32" />
+      <Parameter Name="clase" Mode="In" Type="Int32" />
+      <Parameter Name="atributo" Mode="In" Type="Int32" />
+      <Parameter Name="vida_real" Mode="In" Type="Int32" />
+      <Parameter Name="energia_real" Mode="In" Type="Int32" />
+      <Parameter Name="atk" Mode="In" Type="Int32" />
+      <Parameter Name="mag_atk" Mode="In" Type="Int32" />
+      <Parameter Name="armor" Mode="In" Type="Int32" />
+      <Parameter Name="mr" Mode="In" Type="Int32" />
+      <Parameter Name="oro" Mode="In" Type="Int32" />
+      <Parameter Name="plata" Mode="In" Type="Int32" />
+      <Parameter Name="cobre" Mode="In" Type="Int32" />
+      <Parameter Name="vida_actual" Mode="In" Type="Int32" />
+      <Parameter Name="energia_actual" Mode="In" Type="Int32" />
+      <Parameter Name="fuerza_inicial" Mode="In" Type="Int32" />
+      <Parameter Name="fuerza_real" Mode="In" Type="Int32" />
+      <Parameter Name="fuerza_actual" Mode="In" Type="Int32" />
+      <Parameter Name="intel_ini" Mode="In" Type="Int32" />
+      <Parameter Name="intel_real" Mode="In" Type="Int32" />
+      <Parameter Name="intel_actual" Mode="In" Type="Int32" />
+      <Parameter Name="sab_ini" Mode="In" Type="Int32" />
+      <Parameter Name="sab_real" Mode="In" Type="Int32" />
+      <Parameter Name="sab_actual" Mode="In" Type="Int32" />
+      <Parameter Name="agi_ini" Mode="In" Type="Int32" />
+      <Parameter Name="agi_real" Mode="In" Type="Int32" />
+      <Parameter Name="agi_actual" Mode="In" Type="Int32" />
+      <Parameter Name="res_ini" Mode="In" Type="Int32" />
+      <Parameter Name="res_real" Mode="In" Type="Int32" />
+      <Parameter Name="res_actual" Mode="In" Type="Int32" />
+      <Parameter Name="velocidad_ini" Mode="In" Type="Int32" />
+      <Parameter Name="velocidad_real" Mode="In" Type="Int32" />
+      <Parameter Name="velocidad_actual" Mode="In" Type="Int32" />
+      <Parameter Name="estado" Mode="In" Type="Int32" />
+      <Parameter Name="habilitado" Mode="In" Type="Boolean" />
+      <Parameter Name="imagen" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="get_items" ReturnType="Collection(RollModel.get_items_Result)">
+      <Parameter Name="id_pj" Mode="In" Type="Int32" />
+      <Parameter Name="categoria" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="get_skills" ReturnType="Collection(RollModel.get_skills_Result)">
+      <Parameter Name="id_pj" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="leveleo" EntityType="RollModel.leveleo" />
+    <AssociationSet Name="FK_leveleo_personajes" Association="RollModel.FK_leveleo_personajes">
+      <End Role="personajes" EntitySet="personajes" />
+      <End Role="leveleo" EntitySet="leveleo" />
+    </AssociationSet>
+    <FunctionImport Name="get_lvl_up" ReturnType="Collection(Int32)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="skill_delete">
+      <Parameter Name="skill_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="skill_insert">
+      <Parameter Name="skill_nombre" Mode="In" Type="String" />
+      <Parameter Name="skill_nivel" Mode="In" Type="Double" />
+      <Parameter Name="skill_tipo" Mode="In" Type="String" />
+      <Parameter Name="skill_atributo" Mode="In" Type="String" />
+      <Parameter Name="skill_costo" Mode="In" Type="Double" />
+      <Parameter Name="skill_tipo_efecto" Mode="In" Type="String" />
+      <Parameter Name="skill_danio" Mode="In" Type="String" />
+      <Parameter Name="skill_dado_basico" Mode="In" Type="String" />
+      <Parameter Name="skill_requisito" Mode="In" Type="String" />
+      <Parameter Name="skill_alineamiento" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="skill_update">
+      <Parameter Name="skill_id" Mode="In" Type="Int32" />
+      <Parameter Name="skill_nombre" Mode="In" Type="String" />
+      <Parameter Name="skill_nivel" Mode="In" Type="Double" />
+      <Parameter Name="skill_tipo" Mode="In" Type="String" />
+      <Parameter Name="skill_atributo" Mode="In" Type="String" />
+      <Parameter Name="skill_costo" Mode="In" Type="Double" />
+      <Parameter Name="skill_tipo_efecto" Mode="In" Type="String" />
+      <Parameter Name="skill_danio" Mode="In" Type="String" />
+      <Parameter Name="skill_dado_basico" Mode="In" Type="String" />
+      <Parameter Name="skill_requisito" Mode="In" Type="String" />
+      <Parameter Name="skill_alineamiento" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="skill_up_use">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="get_skills_listado_resumido" ReturnType="Collection(RollModel.get_skills_listado_resumido_Result)" />
+    <FunctionImport Name="crear_asignacion_skill">
+      <Parameter Name="id_personaje" Mode="In" Type="Int32" />
+      <Parameter Name="id_skill" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="crear_asignacion_item">
+      <Parameter Name="id_personaje" Mode="In" Type="Int32" />
+      <Parameter Name="id_item" Mode="In" Type="Int32" />
+      <Parameter Name="cantidad" Mode="In" Type="Int32" />
+      <Parameter Name="equipado" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="equip_un">
+      <Parameter Name="id_asoc" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="monstruos" EntityType="RollModel.monstruos" />
+    <FunctionImport Name="buff_up">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="fuerza" Mode="In" Type="Int32" />
+      <Parameter Name="inteligencia" Mode="In" Type="Int32" />
+      <Parameter Name="sabiduria" Mode="In" Type="Int32" />
+      <Parameter Name="agilidad" Mode="In" Type="Int32" />
+      <Parameter Name="resistencia" Mode="In" Type="Int32" />
+      <Parameter Name="velocidad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="encuentro" EntityType="RollModel.encuentro" />
+    <EntitySet Name="party_mon_cabecera" EntityType="RollModel.party_mon_cabecera" />
+    <EntitySet Name="party_mon" EntityType="RollModel.party_mon" />
+    <AssociationSet Name="FK_party_mon_monstruos" Association="RollModel.FK_party_mon_monstruos">
+      <End Role="monstruos" EntitySet="monstruos" />
+      <End Role="party_mon" EntitySet="party_mon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_party_mon_party_mon_cabecera" Association="RollModel.FK_party_mon_party_mon_cabecera">
+      <End Role="party_mon_cabecera" EntitySet="party_mon_cabecera" />
+      <End Role="party_mon" EntitySet="party_mon" />
+    </AssociationSet>
+    <EntitySet Name="party_cabecera" EntityType="RollModel.party_cabecera" />
+    <EntitySet Name="party" EntityType="RollModel.party" />
+    <AssociationSet Name="FK_party_party_cabecera" Association="RollModel.FK_party_party_cabecera">
+      <End Role="party_cabecera" EntitySet="party_cabecera" />
+      <End Role="party" EntitySet="party" />
+    </AssociationSet>
+    <AssociationSet Name="FK_party_personajes" Association="RollModel.FK_party_personajes">
+      <End Role="personajes" EntitySet="personajes" />
+      <End Role="party" EntitySet="party" />
+    </AssociationSet>
+    <AssociationSet Name="FK_encuentro_party_cabecera" Association="RollModel.FK_encuentro_party_cabecera">
+      <End Role="party_cabecera" EntitySet="party_cabecera" />
+      <End Role="encuentro" EntitySet="encuentro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_encuentro_party_mon_cabecera" Association="RollModel.FK_encuentro_party_mon_cabecera">
+      <End Role="party_mon_cabecera" EntitySet="party_mon_cabecera" />
+      <End Role="encuentro" EntitySet="encuentro" />
+    </AssociationSet>
+    <FunctionImport Name="agregar_a_la_party">
+      <Parameter Name="id_party" Mode="In" Type="Int32" />
+      <Parameter Name="id_personaje" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="agregar_a_la_party_mon">
+      <Parameter Name="id_party" Mode="In" Type="Int32" />
+      <Parameter Name="id_mon" Mode="In" Type="Int32" />
+      <Parameter Name="estado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="eliminar_miembro_party_mon">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="modificar_miembro_party_mon">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="vida_resta" Mode="In" Type="Int32" />
+      <Parameter Name="mana_resta" Mode="In" Type="Int32" />
+      <Parameter Name="estado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <AssociationSet Name="FK_party_mon_estado" Association="RollModel.FK_party_mon_estado">
+      <End Role="estado" EntitySet="estado" />
+      <End Role="party_mon" EntitySet="party_mon" />
+    </AssociationSet>
+    <FunctionImport Name="descontar_mana_mon">
+      <Parameter Name="id_party_mon_id" Mode="In" Type="Int32" />
+      <Parameter Name="mana" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="get_atributos_calculadora" ReturnType="Collection(RollModel.get_atributos_calculadora_Result)">
+      <Parameter Name="pj_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="impactar_danio_a_mon">
+      <Parameter Name="id_party_mon_id" Mode="In" Type="Int32" />
+      <Parameter Name="es_skill" Mode="In" Type="Boolean" />
+      <Parameter Name="tipo_danio" Mode="In" Type="Int32" />
+      <Parameter Name="agi_pj" Mode="In" Type="Int32" />
+      <Parameter Name="vel_pj" Mode="In" Type="Int32" />
+      <Parameter Name="danio_pj_basico" Mode="In" Type="Int32" />
+      <Parameter Name="dado_prec" Mode="In" Type="Int32" />
+      <Parameter Name="danio_skill" Mode="In" Type="Int32" />
+      <Parameter Name="es_magico" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="select_pj" ReturnType="Collection(RollModel.select_pj_Result)">
+      <Parameter Name="id_party" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="get_numeros_pj_calculadora" ReturnType="Collection(RollModel.get_numeros_pj_calculadora_Result)">
+      <Parameter Name="id_pj" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="impactar_danio_a_pj">
+      <Parameter Name="id_pj" Mode="In" Type="Int32" />
+      <Parameter Name="es_skill" Mode="In" Type="Boolean" />
+      <Parameter Name="tipo_danio" Mode="In" Type="Int32" />
+      <Parameter Name="tier" Mode="In" Type="Int32" />
+      <Parameter Name="vel_mon" Mode="In" Type="Int32" />
+      <Parameter Name="danio_mon_basico" Mode="In" Type="Int32" />
+      <Parameter Name="dado_prec" Mode="In" Type="Int32" />
+      <Parameter Name="danio_skill" Mode="In" Type="Int32" />
+      <Parameter Name="es_magico" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <EntitySet Name="mochilas" EntityType="RollModel.mochilas" />
+    <EntitySet Name="asoc_personaje_mochila" EntityType="RollModel.asoc_personaje_mochila" />
+    <AssociationSet Name="FK_asoc_personaje_mochila_mochilas" Association="RollModel.FK_asoc_personaje_mochila_mochilas">
+      <End Role="mochilas" EntitySet="mochilas" />
+      <End Role="asoc_personaje_mochila" EntitySet="asoc_personaje_mochila" />
+    </AssociationSet>
+    <AssociationSet Name="FK_asoc_personaje_mochila_personajes" Association="RollModel.FK_asoc_personaje_mochila_personajes">
+      <End Role="personajes" EntitySet="personajes" />
+      <End Role="asoc_personaje_mochila" EntitySet="asoc_personaje_mochila" />
+    </AssociationSet>
+    <FunctionImport Name="crear_asignacion_mochila">
+      <Parameter Name="id_personaje" Mode="In" Type="Int32" />
+      <Parameter Name="id_mochila" Mode="In" Type="Int32" />
+      <Parameter Name="peso_ocupado" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="get_peso_mochila" ReturnType="Collection(RollModel.get_peso_mochila_Result)">
+      <Parameter Name="id_pj" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="get_peso_total" ReturnType="Collection(RollModel.get_peso_total_Result)">
+      <Parameter Name="id_pj" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="eliminar_asignacion_mochila">
+      <Parameter Name="id_asoc" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="modificar_asignacion_mochila">
+      <Parameter Name="id_asoc" Mode="In" Type="Int32" />
+      <Parameter Name="id_personaje" Mode="In" Type="Int32" />
+      <Parameter Name="id_mochila" Mode="In" Type="Int32" />
+      <Parameter Name="peso_ocupado" Mode="In" Type="Decimal" />
+      <Parameter Name="equipado" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="equip_un_mochila">
+      <Parameter Name="id_pj" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="jugadores_con_monedero" ReturnType="Collection(RollModel.jugadores_con_monedero_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="mascotas" EntityType="RollModel.mascotas" />
+    <AssociationSet Name="FK_mascotas_personajes" Association="RollModel.FK_mascotas_personajes">
+      <End Role="personajes" EntitySet="personajes" />
+      <End Role="mascotas" EntitySet="mascotas" />
+    </AssociationSet>
+    <FunctionImport Name="get_mascotas" ReturnType="Collection(RollModel.get_mascotas_Result)">
+      <Parameter Name="id_pj" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <AssociationSet Name="FK_mascotas_monstruos" Association="RollModel.FK_mascotas_monstruos">
+      <End Role="monstruos" EntitySet="monstruos" />
+      <End Role="mascotas" EntitySet="mascotas" />
+    </AssociationSet>
+    <FunctionImport Name="sugerir_activas" ReturnType="Collection(RollModel.sugerir_activas_Result)">
+      <Parameter Name="clase_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sugerir_pasivas" ReturnType="Collection(RollModel.sugerir_pasivas_Result)">
+      <Parameter Name="clase_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="get_items_Result">
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="descripcion" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="bono" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="cantidad" Nullable="false" />
+    <Property Type="Boolean" Name="equipado" Nullable="false" />
+    <Property Type="Double" Name="item_atk" Nullable="true" />
+    <Property Type="Double" Name="item_mag_atk" Nullable="true" />
+    <Property Type="Double" Name="item_def" Nullable="true" />
+    <Property Type="Double" Name="item_mag_def" Nullable="true" />
+    <Property Type="Int32" Name="id_asoc" Nullable="false" />
+    <Property Type="String" Name="categoria" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="clasificacion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="tipo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="nombre_imagen" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="peso" Nullable="false" Precision="8" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="get_skills_Result">
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="tipo" Nullable="true" MaxLength="255" />
+    <Property Type="Double" Name="costo" Nullable="true" />
+    <Property Type="String" Name="efecto" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="danio" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="requisitos" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="usos" Nullable="false" />
+    <Property Type="Int32" Name="id_asoc" Nullable="false" />
+    <Property Type="Double" Name="nivel" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="leveleo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_personaje" Type="Int32" />
+    <Property Name="puntos_disponibles" Type="Int32" />
+    <NavigationProperty Name="personajes" Relationship="RollModel.FK_leveleo_personajes" FromRole="leveleo" ToRole="personajes" />
+  </EntityType>
+  <Association Name="FK_leveleo_personajes">
+    <End Type="RollModel.personajes" Role="personajes" Multiplicity="0..1" />
+    <End Type="RollModel.leveleo" Role="leveleo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personajes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="leveleo">
+        <PropertyRef Name="id_personaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="get_skills_listado_resumido_Result">
+    <Property Type="Int32" Name="id_skill" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="255" />
+    <Property Type="Double" Name="nivel" Nullable="true" />
+    <Property Type="String" Name="tipo" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="alineamiento" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="requisitos" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <EntityType Name="monstruos">
+    <Key>
+      <PropertyRef Name="mon_id" />
+    </Key>
+    <Property Name="mon_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tier" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="vida" Type="Int32" Nullable="false" />
+    <Property Name="mana" Type="Int32" Nullable="false" />
+    <Property Name="ataque_basico" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ataque_especial" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="velocidad" Type="Int32" Nullable="false" />
+    <Property Name="armor" Type="Int32" Nullable="false" />
+    <Property Name="mr" Type="Int32" Nullable="false" />
+    <Property Name="evasion" Type="Int32" Nullable="false" />
+    <Property Name="experiencia" Type="Int32" Nullable="false" />
+    <Property Name="nombre_imagen" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="party_mon" Relationship="RollModel.FK_party_mon_monstruos" FromRole="monstruos" ToRole="party_mon" />
+    <NavigationProperty Name="mascotas" Relationship="RollModel.FK_mascotas_monstruos" FromRole="monstruos" ToRole="mascotas" />
+  </EntityType>
+  <EntityType Name="encuentro">
+    <Key>
+      <PropertyRef Name="id_encuentro" />
+    </Key>
+    <Property Name="id_encuentro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_party_pj" Type="Int32" Nullable="false" />
+    <Property Name="id_party_mon" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="party_cabecera" Relationship="RollModel.FK_encuentro_party_cabecera" FromRole="encuentro" ToRole="party_cabecera" />
+    <NavigationProperty Name="party_mon_cabecera" Relationship="RollModel.FK_encuentro_party_mon_cabecera" FromRole="encuentro" ToRole="party_mon_cabecera" />
+  </EntityType>
+  <EntityType Name="party_mon_cabecera">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="party_mon" Relationship="RollModel.FK_party_mon_party_mon_cabecera" FromRole="party_mon_cabecera" ToRole="party_mon" />
+    <NavigationProperty Name="encuentro" Relationship="RollModel.FK_encuentro_party_mon_cabecera" FromRole="party_mon_cabecera" ToRole="encuentro" />
+    <Property Name="nombre_party_mon" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="party_mon">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_party_mon" Type="Int32" Nullable="false" />
+    <Property Name="id_mon" Type="Int32" Nullable="false" />
+    <Property Name="vida_max" Type="Int32" />
+    <Property Name="vida_actual" Type="Int32" />
+    <Property Name="mana_max" Type="Int32" />
+    <Property Name="mana_actual" Type="Int32" />
+    <Property Name="mon_estado" Type="Int32" />
+    <NavigationProperty Name="monstruos" Relationship="RollModel.FK_party_mon_monstruos" FromRole="party_mon" ToRole="monstruos" />
+    <NavigationProperty Name="party_mon_cabecera" Relationship="RollModel.FK_party_mon_party_mon_cabecera" FromRole="party_mon" ToRole="party_mon_cabecera" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="estado" Relationship="RollModel.FK_party_mon_estado" FromRole="party_mon" ToRole="estado" />
+  </EntityType>
+  <Association Name="FK_party_mon_monstruos">
+    <End Type="RollModel.monstruos" Role="monstruos" Multiplicity="1" />
+    <End Type="RollModel.party_mon" Role="party_mon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="monstruos">
+        <PropertyRef Name="mon_id" />
+      </Principal>
+      <Dependent Role="party_mon">
+        <PropertyRef Name="id_mon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_party_mon_party_mon_cabecera">
+    <End Type="RollModel.party_mon_cabecera" Role="party_mon_cabecera" Multiplicity="1" />
+    <End Type="RollModel.party_mon" Role="party_mon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="party_mon_cabecera">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="party_mon">
+        <PropertyRef Name="id_party_mon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="party_cabecera">
+    <Key>
+      <PropertyRef Name="id_party" />
+    </Key>
+    <Property Name="id_party" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_party" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="rango_gremio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="party" Relationship="RollModel.FK_party_party_cabecera" FromRole="party_cabecera" ToRole="party" />
+    <NavigationProperty Name="encuentro" Relationship="RollModel.FK_encuentro_party_cabecera" FromRole="party_cabecera" ToRole="encuentro" />
+  </EntityType>
+  <EntityType Name="party">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_party_pj" Type="Int32" Nullable="false" />
+    <Property Name="id_pj" Type="Int32" Nullable="false" />
+    <Property Name="pj_estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="party_cabecera" Relationship="RollModel.FK_party_party_cabecera" FromRole="party" ToRole="party_cabecera" />
+    <NavigationProperty Name="personajes" Relationship="RollModel.FK_party_personajes" FromRole="party" ToRole="personajes" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <Association Name="FK_party_party_cabecera">
+    <End Type="RollModel.party_cabecera" Role="party_cabecera" Multiplicity="1" />
+    <End Type="RollModel.party" Role="party" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="party_cabecera">
+        <PropertyRef Name="id_party" />
+      </Principal>
+      <Dependent Role="party">
+        <PropertyRef Name="id_party_pj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_party_personajes">
+    <End Type="RollModel.personajes" Role="personajes" Multiplicity="1" />
+    <End Type="RollModel.party" Role="party" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personajes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="party">
+        <PropertyRef Name="id_pj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_encuentro_party_cabecera">
+    <End Type="RollModel.party_cabecera" Role="party_cabecera" Multiplicity="1" />
+    <End Type="RollModel.encuentro" Role="encuentro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="party_cabecera">
+        <PropertyRef Name="id_party" />
+      </Principal>
+      <Dependent Role="encuentro">
+        <PropertyRef Name="id_party_pj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_encuentro_party_mon_cabecera">
+    <End Type="RollModel.party_mon_cabecera" Role="party_mon_cabecera" Multiplicity="1" />
+    <End Type="RollModel.encuentro" Role="encuentro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="party_mon_cabecera">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="encuentro">
+        <PropertyRef Name="id_party_mon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_party_mon_estado">
+    <End Type="RollModel.estado" Role="estado" Multiplicity="0..1" />
+    <End Type="RollModel.party_mon" Role="party_mon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estado">
+        <PropertyRef Name="id_estado" />
+      </Principal>
+      <Dependent Role="party_mon">
+        <PropertyRef Name="mon_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="get_atributos_calculadora_Result">
+    <Property Type="Int32" Name="pj_agi" Nullable="true" />
+    <Property Type="Int32" Name="pj_vel" Nullable="true" />
+    <Property Type="Double" Name="danio" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="select_pj_Result">
+    <Property Type="Int32" Name="id_personaje" Nullable="false" />
+    <Property Type="String" Name="nombre_personaje" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="get_numeros_pj_calculadora_Result">
+    <Property Type="Int32" Name="id_pj" Nullable="true" />
+    <Property Type="String" Name="imagen" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="estado_numero" Nullable="true" />
+    <Property Type="String" Name="estado_nombre" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="nivel" Nullable="true" />
+    <Property Type="Int32" Name="armor" Nullable="true" />
+    <Property Type="Int32" Name="mr" Nullable="true" />
+    <Property Type="Int32" Name="velocidad" Nullable="true" />
+    <Property Type="Int32" Name="vida_actual" Nullable="true" />
+    <Property Type="Int32" Name="vida_max" Nullable="true" />
+    <Property Type="Int32" Name="mana_actual" Nullable="true" />
+    <Property Type="Int32" Name="mana_max" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="mochilas">
+    <Key>
+      <PropertyRef Name="id_mochila" />
+    </Key>
+    <Property Name="id_mochila" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="multiplicador_peso" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="capacidad" Type="Int32" />
+    <NavigationProperty Name="asoc_personaje_mochila" Relationship="RollModel.FK_asoc_personaje_mochila_mochilas" FromRole="mochilas" ToRole="asoc_personaje_mochila" />
+  </EntityType>
+  <EntityType Name="asoc_personaje_mochila">
+    <Key>
+      <PropertyRef Name="id_asoc" />
+    </Key>
+    <Property Name="id_asoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_personaje" Type="Int32" Nullable="false" />
+    <Property Name="id_mochila" Type="Int32" Nullable="false" />
+    <Property Name="peso_ocupado" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+    <NavigationProperty Name="mochilas" Relationship="RollModel.FK_asoc_personaje_mochila_mochilas" FromRole="asoc_personaje_mochila" ToRole="mochilas" />
+    <NavigationProperty Name="personajes" Relationship="RollModel.FK_asoc_personaje_mochila_personajes" FromRole="asoc_personaje_mochila" ToRole="personajes" />
+    <Property Name="equipado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_asoc_personaje_mochila_mochilas">
+    <End Type="RollModel.mochilas" Role="mochilas" Multiplicity="1" />
+    <End Type="RollModel.asoc_personaje_mochila" Role="asoc_personaje_mochila" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mochilas">
+        <PropertyRef Name="id_mochila" />
+      </Principal>
+      <Dependent Role="asoc_personaje_mochila">
+        <PropertyRef Name="id_mochila" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_asoc_personaje_mochila_personajes">
+    <End Type="RollModel.personajes" Role="personajes" Multiplicity="1" />
+    <End Type="RollModel.asoc_personaje_mochila" Role="asoc_personaje_mochila" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personajes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="asoc_personaje_mochila">
+        <PropertyRef Name="id_personaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="get_peso_mochila_Result">
+    <Property Type="Int32" Name="capacidad" Nullable="true" />
+    <Property Type="String" Name="tipo_mochila" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="peso_cargado" Nullable="true" Precision="17" Scale="4" />
+    <Property Type="Boolean" Name="equipado" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="get_peso_total_Result">
+    <Property Type="Decimal" Name="peso_total_ocupado" Nullable="true" Precision="8" Scale="2" />
+    <Property Type="Int32" Name="peso_cubierto" Nullable="true" />
+    <Property Type="Int32" Name="penalizacion_peso" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="jugadores_con_monedero_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="mascotas">
+    <Key>
+      <PropertyRef Name="mascota_id" />
+    </Key>
+    <Property Name="mascota_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mascota_owner" Type="Int32" Nullable="false" />
+    <Property Name="mascota_nivel" Type="Int32" Nullable="false" />
+    <Property Name="mascota_nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="mascota_especie" Type="Int32" Nullable="false" />
+    <Property Name="mascota_vida_inicial" Type="Int32" />
+    <Property Name="mascota_mana_inicial" Type="Int32" />
+    <Property Name="mascota_vida_real" Type="Int32" />
+    <Property Name="mascota_mana_real" Type="Int32" />
+    <Property Name="mascota_vida_actual" Type="Int32" />
+    <Property Name="mascota_mana_actual" Type="Int32" />
+    <Property Name="mascota_velocidad_inicial" Type="Int32" />
+    <Property Name="mascota_velocidad_real" Type="Int32" />
+    <Property Name="mascota_velocidad_actual" Type="Int32" />
+    <Property Name="mascota_armor_inicial" Type="Int32" />
+    <Property Name="mascota_armor_real" Type="Int32" />
+    <Property Name="mascota_armor_actual" Type="Int32" />
+    <Property Name="mascota_mr_inicial" Type="Int32" />
+    <Property Name="mascota_mr_real" Type="Int32" />
+    <Property Name="mascota_mr_actual" Type="Int32" />
+    <Property Name="mascota_evasion_inicial" Type="Int32" />
+    <Property Name="mascota_evasion_real" Type="Int32" />
+    <Property Name="mascota_evasion_actual" Type="Int32" />
+    <Property Name="mascota_evolucion" Type="Boolean" />
+    <Property Name="mascota_montura" Type="Boolean" />
+    <Property Name="mascota_vuela" Type="Boolean" />
+    <Property Name="mascota_nadar" Type="Boolean" />
+    <Property Name="mascota_respira_agua" Type="Boolean" />
+    <Property Name="mascota_capacidad_carga" Type="Int32" />
+    <Property Name="mascota_peso" Type="Int32" />
+    <Property Name="mascota_altura" Type="Int32" />
+    <Property Name="mascota_ancho" Type="Int32" />
+    <Property Name="mascota_afinidad" Type="Int32" />
+    <Property Name="mascota_edad" Type="Int32" />
+    <NavigationProperty Name="personajes" Relationship="RollModel.FK_mascotas_personajes" FromRole="mascotas" ToRole="personajes" />
+    <NavigationProperty Name="monstruos" Relationship="RollModel.FK_mascotas_monstruos" FromRole="mascotas" ToRole="monstruos" />
+  </EntityType>
+  <Association Name="FK_mascotas_personajes">
+    <End Type="RollModel.personajes" Role="personajes" Multiplicity="1" />
+    <End Type="RollModel.mascotas" Role="mascotas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personajes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mascotas">
+        <PropertyRef Name="mascota_owner" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="get_mascotas_Result">
+    <Property Type="Int32" Name="mascota_id" Nullable="false" />
+    <Property Type="Int32" Name="mascota_nivel" Nullable="false" />
+    <Property Type="String" Name="mascota_nombre" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="mascota_especie" Nullable="false" />
+    <Property Type="Int32" Name="mascota_vida_inicial" Nullable="true" />
+    <Property Type="Int32" Name="mascota_mana_inicial" Nullable="true" />
+    <Property Type="Int32" Name="mascota_vida_real" Nullable="true" />
+    <Property Type="Int32" Name="mascota_mana_real" Nullable="true" />
+    <Property Type="Int32" Name="mascota_vida_actual" Nullable="true" />
+    <Property Type="Int32" Name="mascota_mana_actual" Nullable="true" />
+    <Property Type="Int32" Name="mascota_velocidad_inicial" Nullable="true" />
+    <Property Type="Int32" Name="mascota_velocidad_real" Nullable="true" />
+    <Property Type="Int32" Name="mascota_velocidad_actual" Nullable="true" />
+    <Property Type="Int32" Name="mascota_armor_inicial" Nullable="true" />
+    <Property Type="Int32" Name="mascota_armor_real" Nullable="true" />
+    <Property Type="Int32" Name="mascota_armor_actual" Nullable="true" />
+    <Property Type="Int32" Name="mascota_mr_inicial" Nullable="true" />
+    <Property Type="Int32" Name="mascota_mr_real" Nullable="true" />
+    <Property Type="Int32" Name="mascota_mr_actual" Nullable="true" />
+    <Property Type="Int32" Name="mascota_evasion_inicial" Nullable="true" />
+    <Property Type="Int32" Name="mascota_evasion_real" Nullable="true" />
+    <Property Type="Int32" Name="mascota_evasion_actual" Nullable="true" />
+    <Property Type="Boolean" Name="mascota_evolucion" Nullable="true" />
+    <Property Type="Boolean" Name="mascota_montura" Nullable="true" />
+    <Property Type="Boolean" Name="mascota_vuela" Nullable="true" />
+    <Property Type="Boolean" Name="mascota_nadar" Nullable="true" />
+    <Property Type="Boolean" Name="mascota_respira_agua" Nullable="true" />
+    <Property Type="Int32" Name="mascota_capacidad_carga" Nullable="true" />
+    <Property Type="Int32" Name="mascota_peso" Nullable="true" />
+    <Property Type="Int32" Name="mascota_altura" Nullable="true" />
+    <Property Type="Int32" Name="mascota_ancho" Nullable="true" />
+    <Property Type="Int32" Name="mascota_afinidad" Nullable="true" />
+    <Property Type="Int32" Name="mascota_edad" Nullable="true" />
+    <Property Type="String" Name="nombre_imagen" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <Association Name="FK_mascotas_monstruos">
+    <End Type="RollModel.monstruos" Role="monstruos" Multiplicity="1" />
+    <End Type="RollModel.mascotas" Role="mascotas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="monstruos">
+        <PropertyRef Name="mon_id" />
+      </Principal>
+      <Dependent Role="mascotas">
+        <PropertyRef Name="mascota_especie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sugerir_activas_Result">
+    <Property Type="Int32" Name="id_skill" Nullable="false" />
+    <Property Type="String" Name="skill_nombre" Nullable="true" MaxLength="255" />
+    <Property Type="Double" Name="skill_costo" Nullable="true" />
+    <Property Type="String" Name="skill_atributo" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="skill_tipo_efecto" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="skill_danio" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="skill_requisito" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="sugerir_pasivas_Result">
+    <Property Type="Int32" Name="id_skill" Nullable="false" />
+    <Property Type="String" Name="skill_nombre" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="skill_atributo" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="skill_tipo_efecto" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="skill_danio" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="skill_requisito" Nullable="true" MaxLength="255" />
+  </ComplexType>
+</Schema>

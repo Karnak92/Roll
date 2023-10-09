@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("El roll", "Index", "personajes", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <input type="hidden" id="pagina" value="" />
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Personajes", "Index", "personajes")</li>
+                    <li>@Html.ActionLink("Clases", "Index", "clases")</li>
+                    <li>@Html.ActionLink("Razas", "Index", "razas")</li>
+                    <li>@Html.ActionLink("Items", "Index", "items")</li>
+                    <li>@Html.ActionLink("Skills", "Index", "skills")</li>
+                    <li>@Html.ActionLink("Bestiario", "Index", "bestiario")</li>
+                    
+                </ul>
+                <div class="dropdown">
+                    <button class="dropbtn">Herramientas de DM</button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li>@Html.ActionLink("Atributos", "Index", "atributoes")</li>
+                            <li>@Html.ActionLink("Estados", "Index", "estadoes")</li>
+                            <li>@Html.ActionLink("Mochilas", "Index", "mochilas")</li>
+                            <li>@Html.ActionLink("Asignar Items", "Index", "asoc_personaje_item")</li>
+                            <li>@Html.ActionLink("Asignar Skill", "Index", "asoc_personaje_skill")</li>
+                            <li>@Html.ActionLink("Asignar Mochila", "Index", "asoc_personaje_mochila")</li>
+                            <li>@Html.ActionLink("Asignar LVL", "Index", "leveleos")</li>
+                            <li>@Html.ActionLink("Asignar Mascota", "Index", "mascotas")</li>
+                            <li>@Html.ActionLink("Encuentros", "Index", "encuentros")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/eventos.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

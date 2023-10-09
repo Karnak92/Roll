@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Roll.monstruos>
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mana)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ataque_basico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ataque_especial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.velocidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.armor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.evasion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.experiencia)
+            </th>
+            
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+                <img class="largas_img" src="~/Imagenes/monstruos/@item.nombre_imagen" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mana)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ataque_basico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ataque_especial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.velocidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.armor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.evasion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.experiencia)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.mon_id }) |*@
+                @Html.ActionLink("Details", "Details", new { id=item.mon_id }) |
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.mon_id })*@
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

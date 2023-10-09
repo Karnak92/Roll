@@ -1,0 +1,296 @@
+﻿@model Roll.mascotas
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>mascotas</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_nivel)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_nivel)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_nombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_vida_inicial)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_vida_inicial)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_mana_inicial)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_mana_inicial)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_vida_real)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_vida_real)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_mana_real)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_mana_real)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_vida_actual)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_vida_actual)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_mana_actual)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_mana_actual)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_velocidad_inicial)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_velocidad_inicial)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_velocidad_real)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_velocidad_real)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_velocidad_actual)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_velocidad_actual)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_armor_inicial)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_armor_inicial)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_armor_real)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_armor_real)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_armor_actual)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_armor_actual)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_mr_inicial)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_mr_inicial)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_mr_real)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_mr_real)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_mr_actual)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_mr_actual)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_evasion_inicial)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_evasion_inicial)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_evasion_real)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_evasion_real)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_evasion_actual)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_evasion_actual)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_evolucion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_evolucion)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_montura)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_montura)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_vuela)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_vuela)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_nadar)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_nadar)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_respira_agua)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_respira_agua)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_capacidad_carga)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_capacidad_carga)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_peso)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_peso)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_altura)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_altura)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_ancho)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_ancho)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_afinidad)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_afinidad)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mascota_edad)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mascota_edad)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.personajes.nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.personajes.nombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.monstruos.nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.monstruos.nombre)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

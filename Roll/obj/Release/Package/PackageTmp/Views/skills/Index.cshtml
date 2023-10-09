@@ -1,0 +1,128 @@
+﻿@model Roll.Models.skill_list_completo
+
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    @*<input type="text" id="filtro_skills" value="" placeholder="Filtro..." />*@
+    <div class="form-group">
+        <label class="control-label col-md-2">Skill Nombre</label>
+        <div class="col-md-10">
+            <input type="text" id="filtro_skills_nombre" value="" class="form-control" placeholder="Filtro..." />
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.skill_nivel, "skill_nivel", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("skill_nivel", null, htmlAttributes: new { @class = "form-control select_nivel" })
+            @Html.ValidationMessageFor(model => model.skill_nivel, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.skill_tipo, "skill_tipo", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("skill_tipo", null, htmlAttributes: new { @class = "form-control select_tipo" })
+            @Html.ValidationMessageFor(model => model.skill_tipo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.skill_alineamiento, "skill_atributo", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("skill_alineamiento", null, htmlAttributes: new { @class = "form-control select_alineamiento" })
+            @Html.ValidationMessageFor(model => model.skill_alineamiento, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <table class="table" id="tabla_skills">
+        <tr class="filtrado_titulo">
+            <th>
+                skill_nombre
+            </th>
+            <th>
+                skill_nivel
+            </th>
+            <th>
+                skill_tipo
+            </th>
+            <th>
+                skill_atributo
+            </th>
+            <th>
+                skill_costo
+            </th>
+            <th>
+                skill_tipo_efecto
+            </th>
+            <th>
+                skill_danio
+            </th>
+            <th>
+                skill_dado_basico
+            </th>
+            <th>
+                skill_requisito
+            </th>
+            <th>
+                skill_alineamiento
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.lista)
+        {
+            <tr skill_nivel="@Html.DisplayFor(modelItem => item.skill_nivel)" skill_alineamiento="@Html.DisplayFor(modelItem => item.skill_atributo)" skill_tipo="@Html.DisplayFor(modelItem => item.skill_tipo)" class="filtrado">
+                <td>
+                    @Html.DisplayFor(modelItem => item.skill_nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.skill_nivel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.skill_tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.skill_atributo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.skill_costo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.skill_tipo_efecto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.skill_danio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.skill_dado_basico)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.skill_requisito)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.skill_alineamiento)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id_skill }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id_skill }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id_skill })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

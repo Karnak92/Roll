@@ -1,0 +1,121 @@
+﻿@model Roll.items
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>items</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.item_nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.item_nombre)
+            </dd>
+
+            <dt>
+                Apariencia
+            </dt>
+
+            <dd>
+                @if (Html.DisplayFor(model => model.item_categoria).ToString() == "arma")
+                {
+                    <img class="monster_img" src="~/Imagenes/armas/@Html.DisplayFor(model => model.item_clasificacion)/@Html.DisplayFor(model => model.item_tipo)/@Html.DisplayFor(model => model.item_imagen_nombre)" />
+                }
+                else
+                {
+                    <img class="monster_img" src="~/Imagenes/@Html.DisplayFor(model => model.item_categoria)/@Html.DisplayFor(model => model.item_clasificacion)/@Html.DisplayFor(model => model.item_imagen_nombre)" />
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.item_categoria)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.item_categoria)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.item_tier)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.item_tier)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.item_descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.item_descripcion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.item_bonificacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.item_bonificacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.item_atk)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.item_atk)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.item_mag_atk)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.item_mag_atk)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.item_def)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.item_def)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.item_mag_def)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.item_mag_def)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.peso)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.peso)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id_item }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

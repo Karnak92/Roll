@@ -1,0 +1,206 @@
+﻿@model Roll.get_numeros_pj_calculadora_Result
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1_sincabecera.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>monstruos</h4>
+        <hr />
+        <div class="col-md-6">
+            <div class="row">
+                <dl class="dl-horizontal">
+
+                    <dt>
+                        Nombre
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.nombre)
+                        <input type="hidden" id="personaje_id" value="@Html.DisplayFor(model => model.id_pj)" />
+                    </dd>
+
+                    <dt>
+                        Apariencia
+                    </dt>
+
+                    <dd>
+                        <img class="personaje_img" src="~/Imagenes/personajes/@Html.DisplayFor(model => model.imagen)" />
+                    </dd>
+
+                </dl>
+
+            </div>
+            <div class="row">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Nivel
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.nivel)
+                    </dd>
+
+                    <dt>
+                        Estado
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.estado_nombre)
+                        <input type="hidden" id="personaje_estado" value="@Html.DisplayFor(model => model.estado_numero)" />
+                    </dd>
+
+                    <dt>
+                        Vida
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.vida_actual)/@Html.DisplayFor(model => model.vida_max)
+                    </dd>
+
+                    <dt>
+                        Mana
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.mana_actual)/@Html.DisplayFor(model => model.mana_max)
+                    </dd>
+
+                    <dt>
+                        Velocidad
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.velocidad)
+                    </dd>
+
+                    <dt>
+                        Defensa Fisica
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.armor)
+                    </dd>
+
+                    <dt>
+                        Defensa Magica
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.mr)
+                    </dd>
+
+                    
+
+                </dl>
+            </div>
+            
+        </div>
+        <div class="col-md-6 fondo_calculadora recuadro">
+            <div class="row">&nbsp; </div>
+            <div class="row">
+                <div class="row">
+                    <div class="col-md-4">Basico</div>
+                    <div class="col-md-4">
+                        <label class="switch">
+                            <input class="" id="es_skill" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="col-md-4">Skill</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-9">
+                                Tier
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" id="tier" value="0" class="input_calculadora_stats" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                Velocidad Mon
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" id="vel_mon" value="0" class="input_calculadora_stats" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                Daño Mon
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" id="danio_mon" value="0" class="input_calculadora_stats" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 recuadro">
+                        <div class="row">
+                            <input type="radio" id="esquive" name="tipo_danio" value="1" checked>
+                            <label for="esquive">Esquive y Armadura</label>
+                        </div>
+                        <div class="row">
+                            <input type="radio" id="resistencia" name="tipo_danio" value="2">
+                            <label for="resistencia">Armadura</label>
+                        </div>
+                        <div class="row">
+                            <input type="radio" id="directo" name="tipo_danio" value="3">
+                            <label for="directo">Daño Directo</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-9">
+                                Dado Prec.
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" id="dado_prec" value="0" class="input_calculadora_stats" />
+                            </div>
+                        </div>
+                        <div class="row">&nbsp; </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                Daño
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" id="danio_skill" value="0" class="input_calculadora_stats" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">Fisico</div>
+                    <div class="col-md-4">
+                        <label class="switch">
+                            <input class="" id="es_danio_magico" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="col-md-4">Magico</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <button id="boton_impactar_danio_pj" class="" id_pj="@Html.DisplayFor(model => model.id_pj)">guardar</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</body>
+</html>

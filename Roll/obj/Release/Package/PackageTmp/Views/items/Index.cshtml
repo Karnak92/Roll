@@ -1,0 +1,158 @@
+﻿@model Roll.Models.item_list_completo
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    @*<input type="text" id="filtro_items" value="" placeholder="Filtro..." />*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.categoria, "categoria", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("categoria", null, htmlAttributes: new { @class = "form-control select_categoria" })
+            @Html.ValidationMessageFor(model => model.categoria, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.clasificacion, "clasificacion", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("clasificacion", null, htmlAttributes: new { @class = "form-control " })
+            @Html.ValidationMessageFor(model => model.clasificacion, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.tipo, "tipo", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("tipo", null, htmlAttributes: new { @class = "form-control " })
+            @Html.ValidationMessageFor(model => model.tipo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.tipo, "tier", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("tier", null, htmlAttributes: new { @class = "form-control " })
+            @Html.ValidationMessageFor(model => model.tier, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <table class="table" id="tabla_items">
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Categoria
+            </th>
+            <th>
+                Clasificacion
+            </th>
+            <th>
+                Tipo
+            </th>
+            <th>
+                Tier
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Bonificación
+            </th>
+            <th>
+                atk
+            </th>
+            <th>
+                mag_atk
+            </th>
+            <th>
+                def
+            </th>
+            <th>
+                mag_def
+            </th>
+            <th>
+                Peso
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.lista)
+        {
+                <tr item_categoria="@item.item_categoria" item_clasificacion="@item.item_clasificacion" item_tipo="@item.item_tipo" item_tier="@item.item_tier" class="filtrado">
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.item_nombre)
+                        @if (item.item_categoria == "arma")
+                        {
+                            <img class="largas_img" src="~/Imagenes/armas/@item.item_clasificacion/@item.item_tipo/@item.item_imagen_nombre" />
+                        }
+                        else
+                        {
+                            if (item.item_categoria == "mapas")
+                            {
+                            }
+                            else
+                            {
+                                <img class="largas_img" src="~/Imagenes/@item.item_categoria/@item.item_clasificacion/@item.item_imagen_nombre" />
+                            }
+                        }
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.item_categoria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.item_clasificacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.item_tipo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.item_tier)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.item_descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.item_bonificacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.item_atk)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.item_mag_atk)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.item_def)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.item_mag_def)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.peso)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id_item }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id_item }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id_item })
+                    </td>
+                </tr>
+                }
+
+            </table>
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Roll.asoc_personaje_mochila>
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.mochilas.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.personajes.nombre)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.mochilas.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.personajes.nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_asoc }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_asoc }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_asoc })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

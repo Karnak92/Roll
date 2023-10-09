@@ -1,0 +1,320 @@
+﻿@model Roll.personajes
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>personajes</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.nivel)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nivel)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.vida_real)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.vida_real)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.energia_real)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.energia_real)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.atk)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.atk)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mag_atk)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mag_atk)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.armor)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.armor)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mr)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mr)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.oro)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.oro)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.plata)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.plata)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.cobre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.cobre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.vida_actual)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.vida_actual)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.energia_actual)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.energia_actual)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.fuerza_inicial)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.fuerza_inicial)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.fuerza_real)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.fuerza_real)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.fuerza_actual)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.fuerza_actual)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.intel_ini)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.intel_ini)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.intel_real)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.intel_real)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.intel_actual)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.intel_actual)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sab_ini)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sab_ini)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sab_real)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sab_real)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sab_actual)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sab_actual)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.agi_ini)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.agi_ini)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.agi_real)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.agi_real)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.agi_actual)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.agi_actual)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.res_ini)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.res_ini)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.res_real)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.res_real)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.res_actual)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.res_actual)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.velocidad_ini)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.velocidad_ini)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.velocidad_real)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.velocidad_real)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.velocidad_actual)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.velocidad_actual)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.habilitado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.habilitado)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.atributo1.atributo_nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.atributo1.atributo_nombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.clases.clas_nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.clases.clas_nombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.estado1.est_nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.estado1.est_nombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.razas.raza_nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.razas.raza_nombre)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

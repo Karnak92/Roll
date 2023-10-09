@@ -1,0 +1,123 @@
+﻿@model Roll.razas
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>razas</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.raza_nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.raza_nombre)
+            </dd>
+
+            <dt>
+                Apariencia
+            </dt>
+
+            <dd>
+                <img class="monster_img" src="~/Imagenes/razas/@Html.DisplayFor(model => model.raza_imagen)" />
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.raza_fuerza)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.raza_fuerza)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.raza_inteligencia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.raza_inteligencia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.raza_sabiduria)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.raza_sabiduria)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.raza_agilidad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.raza_agilidad)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.raza_resistencia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.raza_resistencia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.raza_mult_vida)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.raza_mult_vida)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.raza_aspecto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.raza_aspecto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.raza_afinidad_dioses)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.raza_afinidad_dioses)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.raza_caracteristicas)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.raza_caracteristicas)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.raza_atributos)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.raza_atributos)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id_raza }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

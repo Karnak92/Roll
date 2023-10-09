@@ -1,0 +1,125 @@
+﻿@model Roll.Models.asoc_personaje_skill_filtro_create
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    @using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-vertical">
+            <h4>asoc_personaje_skill</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.id_personaje, "id_personaje", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("id_personaje", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.id_personaje, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.id_skill, "id_skill", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("id_skill", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.id_skill, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+        <div>
+            <div class="form-group">
+                <label class = "control-label col-md-2" >Skill Nombre</label>
+                <div class="col-md-10">
+                    <input type="text" id="filtro_skills_nombre" value="" class = "form-control" placeholder="Filtro..." />
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.skill_nivel, "skill_nivel", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("skill_nivel", null, htmlAttributes: new { @class = "form-control select_nivel" })
+                    @Html.ValidationMessageFor(model => model.skill_nivel, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.skill_tipo, "skill_tipo", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("skill_tipo", null, htmlAttributes: new { @class = "form-control select_tipo" })
+                    @Html.ValidationMessageFor(model => model.skill_tipo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.skill_alineamiento, "skill_alineamiento", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("skill_alineamiento", null, htmlAttributes: new { @class = "form-control select_alineamiento" })
+                    @Html.ValidationMessageFor(model => model.skill_alineamiento, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <table class="table" id="tabla_skills_resumido">
+                <thead>
+                    <tr>
+                        <th>
+                            Seleccionar
+                        </th>
+                        <th>
+                            skill_nombre
+                        </th>
+                        <th>
+                            skill_nivel
+                        </th>
+                        <th>
+                            skill_tipo
+                        </th>
+                        <th>
+                            skill_alineamiento
+                        </th>
+                        <th>
+                            skill_requisitos
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.lista)
+                    {
+                        <tr skill_nivel="@Html.DisplayFor(modelItem => item.nivel)" skill_alineamiento="@Html.DisplayFor(modelItem => item.alineamiento)" skill_tipo="@Html.DisplayFor(modelItem => item.tipo)" class="filtrado">
+                            @foreach (var property in item.GetType().GetProperties())
+                            {
+                                if (property.Name != "id_skill")
+                                {
+                                    <td>@property.GetValue(item)</td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <button id="" class="btn_skill_select" id_skill="@property.GetValue(item)">Usar</button>
+                                    </td>
+                                }
+
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    
+           
+        </div>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

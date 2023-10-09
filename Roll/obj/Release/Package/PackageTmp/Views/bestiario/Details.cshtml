@@ -1,0 +1,133 @@
+﻿@model Roll.monstruos
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>monstruos</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+
+            <dt>
+                Apariencia
+            </dt>
+
+            <dd>
+                <img class="monster_img" src="~/Imagenes/monstruos/@Html.DisplayFor(model => model.nombre_imagen)" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.tier)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tier)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.descripcion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.vida)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.vida)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.mana)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mana)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ataque_basico)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ataque_basico)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ataque_especial)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ataque_especial)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.velocidad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.velocidad)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.armor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.armor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.mr)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mr)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.evasion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.evasion)
+            </dd>
+
+            <dt>
+                Experiencia ganada por kill
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.experiencia)
+            </dd>
+
+
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.mon_id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

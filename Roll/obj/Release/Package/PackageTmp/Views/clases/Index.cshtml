@@ -1,0 +1,178 @@
+﻿@model IEnumerable<Roll.Models.clases_skills_sugeridas>
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @*Html.ActionLink("Create New", "Create")*@
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Aspecto
+            </th>
+            <th>
+                Clase
+            </th>
+            <th>
+                Fuerza
+            </th>
+            <th>
+                Inteligencia
+            </th>
+            <th>
+                Sabiduria
+            </th>
+            <th>
+                Agilidad
+            </th>
+            <th>
+                Resistencia
+            </th>
+            <th>
+                Bonus Aspecto
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Skills Sugeridas
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img class="casco_img" src="~/Imagenes/clases/@Html.DisplayFor(modelItem => item.clase.clas_imagen)" alt="" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.clase.clas_nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.clase.clas_fuerza)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.clase.clas_inteligencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.clase.clas_sabiduria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.clase.clas_agilidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.clase.clas_resistencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.clase.clas_aspecto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.clase.clas_descripcion)
+                </td>
+                <td>
+                    <button id="" class="btn_skills_sugeridas_pasivas">
+                        Pasivas
+                        @*<img class="ataque_fisico" src="~/Content/skill_tree.jpg" title="Skills Pasivas" />*@
+                    </button>
+                    <button id="" class="btn_skills_sugeridas_activas">
+                        Activas
+                        @*<img class="ataque_fisico" src="~/Content/skill_tree.jpg" title="Skills Activas" />*@
+                    </button>
+                    @*Html.ActionLink("Edit", "Edit", new { id=item.id_clase }) |
+        @Html.ActionLink("Details", "Details", new { id=item.id_clase }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.id_clase })
+                    *@
+                    <div id="" class="modal skills_modal_pasivas">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close">&times;</span>
+                                <h2>Skills pasivas</h2>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-2">nombre</div>
+                                    <div class="col-md-2">atributo</div>
+                                    <div class="col-md-3">efecto</div>
+                                    <div class="col-md-2">requisitos</div>
+
+
+                                </div>
+
+                                @foreach (var skill in item.sugerencia_pasivas)
+                                {
+                                    <div class="row">
+                                        <div class="col-md-1">@skill.skill_nombre</div>
+                                        <div class="col-md-1">@skill.skill_atributo</div>
+                                        <div class="col-md-3">@skill.skill_tipo_efecto</div>
+                                        <div class="col-md-2">@skill.skill_requisito</div>
+                                    </div>
+                                }
+
+                            </div>
+                            <!--<div class="modal-footer">
+                <h3>Modal Footer</h3>
+            </div>-->
+                        </div>
+
+                    </div>
+
+                    <div id="" class="modal skills_modal_activas">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close">&times;</span>
+                                <h2>Skills activas</h2>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-2">nombre</div>
+                                    <div class="col-md-2">costo</div>
+                                    <div class="col-md-2">atributo</div>
+                                    <div class="col-md-3">efecto</div>
+                                    <div class="col-md-1">danio</div>
+                                    <div class="col-md-2">requisitos</div>
+
+
+                                </div>
+
+                                @foreach (var skill in item.sugerencia_activas)
+                                {
+                                    <div class="row">
+                                        <div class="col-md-1">@skill.skill_nombre</div>
+                                        <div class="col-md-1">@skill.skill_costo</div>
+                                        <div class="col-md-1">@skill.skill_atributo</div>
+                                        <div class="col-md-3">@skill.skill_tipo_efecto</div>
+                                        <div class="col-md-1">@skill.skill_danio</div>
+                                        <div class="col-md-2">@skill.skill_requisito</div>
+                                    </div>
+                                }
+
+                            </div>
+                            <!--<div class="modal-footer">
+                <h3>Modal Footer</h3>
+            </div>-->
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    
+</body>
+</html>

@@ -1,0 +1,112 @@
+﻿@model Roll.skill
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>skill</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.skill_nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.skill_nombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.skill_nivel)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.skill_nivel)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.skill_tipo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.skill_tipo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.skill_atributo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.skill_atributo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.skill_costo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.skill_costo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.skill_tipo_efecto)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.skill_tipo_efecto)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.skill_danio)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.skill_danio)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.skill_dado_basico)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.skill_dado_basico)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.skill_requisito)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.skill_requisito)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.skill_alineamiento)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.skill_alineamiento)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

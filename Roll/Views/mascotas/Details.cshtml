@@ -1,0 +1,189 @@
+﻿@model Roll.mascotas
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1_sincabecera.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>@Html.DisplayFor(model => model.mascota_nombre)</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Nivel
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_nivel)
+            </dd>
+
+            <dt>
+                Vida
+            </dt>
+
+            <dd>
+                <div class="progress col-md-2 div_barra div_barra_vida">
+                    <div class="progress-bar barra_vida " role="progressbar" id="barra_actual_vida_mascot" style="width: 50%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    <span>@Html.DisplayFor(model => model.mascota_vida_actual) / @Html.DisplayFor(model => model.mascota_vida_real) </span>
+                </div>
+            </dd>
+
+            <dt>
+                Mana
+            </dt>
+
+            <dd>
+                <div class="progress col-md-2 div_barra div_barra_energia ">
+                    <div class="progress-bar barra_energia " role="progressbar" id="barra_actual_energia_mascot" style="width: 35%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    <span>@Html.DisplayFor(model => model.mascota_mana_actual) / @Html.DisplayFor(model => model.mascota_mana_real)</span>
+                </div>
+            </dd>
+
+            <dt>
+                Apariencia
+            </dt>
+
+            <dd>
+                <img class="personaje_img" src="~/Imagenes/monstruos/@Html.DisplayFor(model => model.monstruos.nombre_imagen)" />
+            </dd>
+
+            <dt>
+                Velocidad
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_velocidad_real) (@Html.DisplayFor(model => model.mascota_velocidad_actual))
+            </dd>
+
+            <dt>
+                Resistencia Fisica
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_armor_real) (@Html.DisplayFor(model => model.mascota_armor_actual))
+            </dd>
+
+            <dt>
+                Resistencia Magica
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_mr_real) (@Html.DisplayFor(model => model.mascota_mr_actual))
+            </dd>
+
+            <dt>
+                Evasión
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_evasion_real) (@Html.DisplayFor(model => model.mascota_evasion_actual))
+            </dd>
+
+            <dt>
+                ¿Evoluciona?
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_evolucion)
+            </dd>
+
+            <dt>
+                ¿Es montable?
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_montura)
+            </dd>
+
+            <dt>
+                ¿Vuela?
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_vuela)
+            </dd>
+
+            <dt>
+                ¿Puede nadar?
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_nadar)
+            </dd>
+
+            <dt>
+                ¿Puede respirar bajo el agua?
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_respira_agua)
+            </dd>
+
+            <dt>
+                ¿Cuanto peso carga?
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_capacidad_carga) Kg.
+            </dd>
+
+            <dt>
+                Peso
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_peso) Kg.
+            </dd>
+
+            <dt>
+                Altura
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_altura) Mts.
+            </dd>
+
+            <dt>
+                Ancho
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_ancho) Mts.
+            </dd>
+
+            <dt>
+                Afinidad
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_afinidad)
+            </dd>
+
+            <dt>
+                Edad
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mascota_edad) Años
+            </dd>
+
+            <dt>
+                Especie
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.monstruos.nombre)
+            </dd>
+
+        </dl>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,98 @@
+﻿@model Roll.clases
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>clases</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.clas_nombre)
+            </dd>
+
+            <dt>
+                Apariencia
+            </dt>
+
+            <dd>
+                <img class="monster_img" src="~/Imagenes/clases/@Html.DisplayFor(model => model.clas_imagen)" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_fuerza)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.clas_fuerza)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_inteligencia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.clas_inteligencia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_sabiduria)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.clas_sabiduria)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_agilidad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.clas_agilidad)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_resistencia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.clas_resistencia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_aspecto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.clas_aspecto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.clas_descripcion)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id_clase }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

@@ -1,0 +1,735 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{385C4592-8B16-421B-9401-9608CEF23B0B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Roll</RootNamespace>
+    <AssemblyName>Roll</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44358</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bold.Licensing, Version=3.1460.34.0, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bold.Licensing.3.1.34\lib\net46\Bold.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="BoldReports.Web, Version=3.1460.34.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\BoldReports.Web.3.1.34\lib\net46\BoldReports.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.Base, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Configuration.ConfigurationBuilders.Base.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Syncfusion.Compression.Base, Version=18.3460.0.35, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Compression.Base.18.3.0.35\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocIO.Base, Version=18.3460.0.35, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.DocIO.AspNet.18.3.0.35\lib\net46\Syncfusion.DocIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=18.3460.0.35, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.18.3.0.35\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.OfficeChart.Base, Version=18.3460.0.35, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.OfficeChart.Base.18.3.0.35\lib\net46\Syncfusion.OfficeChart.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base, Version=18.3460.0.35, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Pdf.AspNet.18.3.0.35\lib\net46\Syncfusion.Pdf.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Presentation.Base, Version=18.3460.0.35, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Presentation.AspNet.18.3.0.35\lib\net46\Syncfusion.Presentation.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Base, Version=18.3460.0.35, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.XlsIO.AspNet.18.3.0.35\lib\net46\Syncfusion.XlsIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="asoc_personaje_item.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="asoc_personaje_mochila.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="asoc_personaje_skill.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="atributo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="clases.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\asoc_personaje_itemController.cs" />
+    <Compile Include="Controllers\asoc_personaje_mochilaController.cs" />
+    <Compile Include="Controllers\asoc_personaje_skillController.cs" />
+    <Compile Include="Controllers\atributoesController.cs" />
+    <Compile Include="Controllers\bestiarioController.cs" />
+    <Compile Include="Controllers\clasesController.cs" />
+    <Compile Include="Controllers\encuentrosController.cs" />
+    <Compile Include="Controllers\estadoesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\itemsController.cs" />
+    <Compile Include="Controllers\leveleosController.cs" />
+    <Compile Include="Controllers\mascotasController.cs" />
+    <Compile Include="Controllers\mochilasController.cs" />
+    <Compile Include="Controllers\personajesController.cs" />
+    <Compile Include="Controllers\razasController.cs" />
+    <Compile Include="Controllers\skillsController.cs" />
+    <Compile Include="encuentro.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="estado.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="get_atributos_calculadora_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="get_items_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="get_mascotas_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="get_numeros_pj_calculadora_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="get_peso_mochila_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="get_peso_total_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="get_skills_listado_resumido_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="get_skills_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="items.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="jugadores_con_monedero_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="leveleo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mascotas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mochilas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\estadisticas_del_pj_calculadora_model.cs" />
+    <Compile Include="Models\id_pj_estadisticas_calculadora_model.cs" />
+    <Compile Include="Models\descontar_mana_mon_model.cs" />
+    <Compile Include="Models\impactar_danio_a_mon_model.cs" />
+    <Compile Include="Models\party_mon_calculadora.cs" />
+    <Compile Include="Models\asoc_personaje_item_filtro.cs" />
+    <Compile Include="Models\asoc_personaje_item_filtro_create.cs" />
+    <Compile Include="Models\crear_asignacion_item.cs" />
+    <Compile Include="Models\crear_asignacion_skill.cs" />
+    <Compile Include="Models\Dados.cs" />
+    <Compile Include="Models\encuentro.cs" />
+    <Compile Include="Models\id_item_asoc.cs" />
+    <Compile Include="Models\item_abm.cs" />
+    <Compile Include="Models\item_list_completo.cs" />
+    <Compile Include="Models\skill_abm.cs" />
+    <Compile Include="Models\clases_skills_sugeridas.cs" />
+    <Compile Include="Models\skill_list_completo.cs" />
+    <Compile Include="Models\skill_list_resumido.cs" />
+    <Compile Include="Models\asoc_personaje_skill_filtro_create.cs" />
+    <Compile Include="Models\asoc_personaje_skill_filtro.cs" />
+    <Compile Include="Models\id_skill_asoc.cs" />
+    <Compile Include="Models\clave_valor.cs" />
+    <Compile Include="Models\level_up.cs" />
+    <Compile Include="Models\personaje_new.cs" />
+    <Compile Include="Models\skill_listado.cs" />
+    <Compile Include="Models\item_listado.cs" />
+    <Compile Include="Models\listado_items_pj.cs" />
+    <Compile Include="monstruos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="party.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="party_cabecera.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="party_mon.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="party_mon_cabecera.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="personajes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="razas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RollContext.cs" />
+    <Compile Include="select_pj_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="skill.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sugerir_activas_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sugerir_pasivas_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\armaduras y obejtos.jpg" />
+    <Content Include="Content\armadura_alternativa.png" />
+    <Content Include="Content\armas.png" />
+    <Content Include="Content\armor icons.png" />
+    <Content Include="Content\ataque_fisico_alternativo.png" />
+    <Content Include="Content\ataque_magico_alternativo.png" />
+    <Content Include="Content\Battle_Cape_icon.png" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\botas.png" />
+    <Content Include="Content\casco.png" />
+    <Content Include="Content\cobre.png" />
+    <Content Include="Content\fondo.jpg" />
+    <Content Include="Content\gold.png" />
+    <Content Include="Content\guantes.png" />
+    <Content Include="Content\inventario.png" />
+    <Content Include="Content\ok.png" />
+    <Content Include="Content\pechera.png" />
+    <Content Include="Content\silver.png" />
+    <Content Include="Content\skill_tree.jpg" />
+    <Content Include="Content\styleess.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Imagenes\armadura\botas\botas_acero.jpg" />
+    <Content Include="Imagenes\armadura\botas\botas_acolchadas.jpg" />
+    <Content Include="Imagenes\armadura\botas\botas_bronce.png" />
+    <Content Include="Imagenes\armadura\botas\botas_cuero.jpg" />
+    <Content Include="Imagenes\armadura\botas\botas_cuero_reforzadas.jpg" />
+    <Content Include="Imagenes\armadura\botas\botas_cuero_tachonadas.jpg" />
+    <Content Include="Imagenes\armadura\botas\botas_hierro.png" />
+    <Content Include="Imagenes\armadura\botas\botas_malla.jpg" />
+    <Content Include="Imagenes\armadura\botas\botas_mythrill.png" />
+    <Content Include="Imagenes\armadura\botas\botas_placas.png" />
+    <Content Include="Imagenes\armadura\botas\grevas_acero.jpg" />
+    <Content Include="Imagenes\armadura\botas\grevas_acolchadas.jpg" />
+    <Content Include="Imagenes\armadura\botas\grevas_bronce.png" />
+    <Content Include="Imagenes\armadura\botas\grevas_cuero.jpg" />
+    <Content Include="Imagenes\armadura\botas\grevas_cuero_reforzado.jpg" />
+    <Content Include="Imagenes\armadura\botas\grevas_cuero_tachonado.png" />
+    <Content Include="Imagenes\armadura\botas\grevas_hierro.jpg" />
+    <Content Include="Imagenes\armadura\botas\grevas_malla.png" />
+    <Content Include="Imagenes\armadura\botas\grevas_mythrill.png" />
+    <Content Include="Imagenes\armadura\botas\grevas_placas.jpg" />
+    <Content Include="Imagenes\armadura\cascos\casco_acero.png" />
+    <Content Include="Imagenes\armadura\cascos\casco_acolchado.jpg" />
+    <Content Include="Imagenes\armadura\cascos\casco_anillas.png" />
+    <Content Include="Imagenes\armadura\cascos\casco_bronce.png" />
+    <Content Include="Imagenes\armadura\cascos\casco_cuero.png" />
+    <Content Include="Imagenes\armadura\cascos\casco_cuero_reforzado.png" />
+    <Content Include="Imagenes\armadura\cascos\casco_cuero_tachonado.png" />
+    <Content Include="Imagenes\armadura\cascos\casco_hierro.png" />
+    <Content Include="Imagenes\armadura\cascos\casco_malla.png" />
+    <Content Include="Imagenes\armadura\cascos\casco_mythrill.jpg" />
+    <Content Include="Imagenes\armadura\cascos\casco_placas.png" />
+    <Content Include="Imagenes\armadura\escudos\carcaj_basico.png" />
+    <Content Include="Imagenes\armadura\escudos\egida.png" />
+    <Content Include="Imagenes\armadura\escudos\escudo_acero.jpg" />
+    <Content Include="Imagenes\armadura\escudos\escudo_bronce.jpg" />
+    <Content Include="Imagenes\armadura\escudos\escudo_hierro.png" />
+    <Content Include="Imagenes\armadura\escudos\escudo_madera.jpg" />
+    <Content Include="Imagenes\armadura\escudos\escudo_moonlight.png" />
+    <Content Include="Imagenes\armadura\escudos\escudo_mythrill.png" />
+    <Content Include="Imagenes\armadura\escudos\escudo_rodela.png" />
+    <Content Include="Imagenes\armadura\escudos\escudo_scutum.png" />
+    <Content Include="Imagenes\armadura\guantes\guantes_acero.png" />
+    <Content Include="Imagenes\armadura\guantes\guantes_bronce.png" />
+    <Content Include="Imagenes\armadura\guantes\guantes_cuero.png" />
+    <Content Include="Imagenes\armadura\guantes\guantes_cuero_reforzado.png" />
+    <Content Include="Imagenes\armadura\guantes\guantes_cuero_tachonado.png" />
+    <Content Include="Imagenes\armadura\guantes\guantes_hierro.png" />
+    <Content Include="Imagenes\armadura\guantes\guantes_malla.png" />
+    <Content Include="Imagenes\armadura\guantes\guantes_mythrill.jpg" />
+    <Content Include="Imagenes\armadura\guantes\guantes_placas.png" />
+    <Content Include="Imagenes\armadura\pecheras\pechera_acero.jpg" />
+    <Content Include="Imagenes\armadura\pecheras\pechera_acolchada.png" />
+    <Content Include="Imagenes\armadura\pecheras\pechera_anillas.png" />
+    <Content Include="Imagenes\armadura\pecheras\pechera_bronce.jpg" />
+    <Content Include="Imagenes\armadura\pecheras\pechera_cuero.png" />
+    <Content Include="Imagenes\armadura\pecheras\pechera_cuero_reforzado.png" />
+    <Content Include="Imagenes\armadura\pecheras\pechera_cuero_tachonado.jpg" />
+    <Content Include="Imagenes\armadura\pecheras\pechera_hierro.jpg" />
+    <Content Include="Imagenes\armadura\pecheras\pechera_laminada.jpg" />
+    <Content Include="Imagenes\armadura\pecheras\pechera_malla.png" />
+    <Content Include="Imagenes\armadura\pecheras\pechera_mythrill.png" />
+    <Content Include="Imagenes\armadura\pecheras\pechera_placas.png" />
+    <Content Include="Imagenes\armadura\pecheras\tunica_arcana_adepto.png" />
+    <Content Include="Imagenes\armadura\pecheras\tunica_basica.png" />
+    <Content Include="Imagenes\armadura\pecheras\tunica_maestro_arcano.png" />
+    <Content Include="Imagenes\armadura\pecheras\tunica_novicio.jpg" />
+    <Content Include="Imagenes\armas\1_mano\cuchillos\daga.png" />
+    <Content Include="Imagenes\armas\1_mano\distancia\arco_oculto.jpg" />
+    <Content Include="Imagenes\armas\1_mano\distancia\ballesta_de_mano.png" />
+    <Content Include="Imagenes\armas\1_mano\espadas\cimitarra.png" />
+    <Content Include="Imagenes\armas\1_mano\espadas\espada_corta.png" />
+    <Content Include="Imagenes\armas\1_mano\espadas\estoque.png" />
+    <Content Include="Imagenes\armas\1_mano\espadas\hoz.png" />
+    <Content Include="Imagenes\armas\1_mano\hachas\hacha_de_mano.png" />
+    <Content Include="Imagenes\armas\1_mano\lanzas\jabalina.jpg" />
+    <Content Include="Imagenes\armas\1_mano\lanzas\lanza.png" />
+    <Content Include="Imagenes\armas\1_mano\lanzas\lanza_caballeria.jpg" />
+    <Content Include="Imagenes\armas\1_mano\latigos\belmont_morning_star.jpg" />
+    <Content Include="Imagenes\armas\1_mano\mazas\clava.png" />
+    <Content Include="Imagenes\armas\1_mano\mazas\lucero_del_alba.png" />
+    <Content Include="Imagenes\armas\1_mano\mazas\mangual.jfif" />
+    <Content Include="Imagenes\armas\1_mano\mazas\martillo_ligero.png" />
+    <Content Include="Imagenes\armas\1_mano\mazas\maza.png" />
+    <Content Include="Imagenes\armas\1_mano\mazas\pico_de_guerra.png" />
+    <Content Include="Imagenes\armas\1_mano\varas\grimorio_avanzado.jpg" />
+    <Content Include="Imagenes\armas\1_mano\varas\grimorio_basico.png" />
+    <Content Include="Imagenes\armas\1_mano\varas\grimorio_intermedio.jpg" />
+    <Content Include="Imagenes\armas\1_mano\varas\grimorio_maestro.jpg" />
+    <Content Include="Imagenes\armas\1_mano\varas\necronomicon.png" />
+    <Content Include="Imagenes\armas\1_mano\varas\scepter.png" />
+    <Content Include="Imagenes\armas\1_mano\varas\vara_cedro.jpg" />
+    <Content Include="Imagenes\armas\1_mano\varas\vara_roble.jpg" />
+    <Content Include="Imagenes\armas\2_manos\alabardas\alabarda.png" />
+    <Content Include="Imagenes\armas\2_manos\alabardas\guja.png" />
+    <Content Include="Imagenes\armas\2_manos\alabardas\tridente.jpg" />
+    <Content Include="Imagenes\armas\2_manos\bastones\baculo_magico.jpg" />
+    <Content Include="Imagenes\armas\2_manos\bastones\baston.png" />
+    <Content Include="Imagenes\armas\2_manos\distancia\arco_corto.png" />
+    <Content Include="Imagenes\armas\2_manos\distancia\arco_corto_compuesto.png" />
+    <Content Include="Imagenes\armas\2_manos\distancia\arco_largo.png" />
+    <Content Include="Imagenes\armas\2_manos\distancia\arco_largo_compuesto.png" />
+    <Content Include="Imagenes\armas\2_manos\distancia\ballesta_ligera.png" />
+    <Content Include="Imagenes\armas\2_manos\distancia\ballesta_pesada.png" />
+    <Content Include="Imagenes\armas\2_manos\espadas\espada_larga.png" />
+    <Content Include="Imagenes\armas\2_manos\espadas\mandoble.png" />
+    <Content Include="Imagenes\armas\2_manos\hachas\gran_hacha.png" />
+    <Content Include="Imagenes\armas\2_manos\mazas\gran_clava.png" />
+    <Content Include="Imagenes\armas\2_manos\mazas\martillo_de_guerra.png" />
+    <Content Include="Imagenes\armas\2_manos\mazas\mazo de guerra.png" />
+    <Content Include="Imagenes\clases\artifice.jpg" />
+    <Content Include="Imagenes\clases\bardo.jpg" />
+    <Content Include="Imagenes\clases\berserker.jpg" />
+    <Content Include="Imagenes\clases\brujo.jpg" />
+    <Content Include="Imagenes\clases\clerigo.jpg" />
+    <Content Include="Imagenes\clases\druida.jpg" />
+    <Content Include="Imagenes\clases\guerrero.jpg" />
+    <Content Include="Imagenes\clases\hechicero.jpg" />
+    <Content Include="Imagenes\clases\mago.jpg" />
+    <Content Include="Imagenes\clases\monje.jpg" />
+    <Content Include="Imagenes\clases\paladin.jpg" />
+    <Content Include="Imagenes\clases\picaro.jpg" />
+    <Content Include="Imagenes\items_varios\varios\flecha_basica.png" />
+    <Content Include="Imagenes\items_varios\varios\virotes_ballesta_basicos.png" />
+    <Content Include="Imagenes\monstruos\abeja_gigante.png" />
+    <Content Include="Imagenes\monstruos\aguila.jpg" />
+    <Content Include="Imagenes\monstruos\araña.png" />
+    <Content Include="Imagenes\monstruos\araña_gigante.jpg" />
+    <Content Include="Imagenes\monstruos\araña_lobo_mediano.jpg" />
+    <Content Include="Imagenes\monstruos\araña_mediana.jpg" />
+    <Content Include="Imagenes\monstruos\arbusto_consciente.jpg" />
+    <Content Include="Imagenes\monstruos\arpia.jpg" />
+    <Content Include="Imagenes\monstruos\babuino.jfif" />
+    <Content Include="Imagenes\monstruos\bandido.jpg" />
+    <Content Include="Imagenes\monstruos\buho.jpg" />
+    <Content Include="Imagenes\monstruos\buitre.jpg" />
+    <Content Include="Imagenes\monstruos\cabra.jpg" />
+    <Content Include="Imagenes\monstruos\cangrejo.jfif" />
+    <Content Include="Imagenes\monstruos\chacal.jpg" />
+    <Content Include="Imagenes\monstruos\children_of_deep.jpg" />
+    <Content Include="Imagenes\monstruos\ciervo.jpg" />
+    <Content Include="Imagenes\monstruos\comadreja_gigante.jpg" />
+    <Content Include="Imagenes\monstruos\cria_dragon_cobre.jpg" />
+    <Content Include="Imagenes\monstruos\cria_dragon_dorado.png" />
+    <Content Include="Imagenes\monstruos\cria_dragon_rojo.jpg" />
+    <Content Include="Imagenes\monstruos\cuervo.jpg" />
+    <Content Include="Imagenes\monstruos\diablillo.jpg" />
+    <Content Include="Imagenes\monstruos\dragon_ancestral_dorado.png" />
+    <Content Include="Imagenes\monstruos\dragon_ancestral_rojo.png" />
+    <Content Include="Imagenes\monstruos\dragon_cobre.png" />
+    <Content Include="Imagenes\monstruos\dragon_dorado_adulto.jpg" />
+    <Content Include="Imagenes\monstruos\dragon_rojo_adulto.png" />
+    <Content Include="Imagenes\monstruos\dragon_rojo_de_la_calamidad.jpg" />
+    <Content Include="Imagenes\monstruos\driada.jpg" />
+    <Content Include="Imagenes\monstruos\gnoll.jpg" />
+    <Content Include="Imagenes\monstruos\gnomo_maldito.jpg" />
+    <Content Include="Imagenes\monstruos\goblin.jpg" />
+    <Content Include="Imagenes\monstruos\halcon.jpg" />
+    <Content Include="Imagenes\monstruos\halcon_sangriento.png" />
+    <Content Include="Imagenes\monstruos\hiena.jpg" />
+    <Content Include="Imagenes\monstruos\kobold.jpg" />
+    <Content Include="Imagenes\monstruos\krenshar.jpg" />
+    <Content Include="Imagenes\monstruos\lobos.jpg" />
+    <Content Include="Imagenes\monstruos\rata.jpg" />
+    <Content Include="Imagenes\monstruos\sectarios.jpg" />
+    <Content Include="Imagenes\monstruos\serpiente.png" />
+    <Content Include="Imagenes\personajes\lucho_tifling.jpg" />
+    <Content Include="Imagenes\personajes\neko_semi_elfo.png" />
+    <Content Include="Imagenes\personajes\tifling_rama.jpg" />
+    <Content Include="Imagenes\personajes\tintin_cazador.jpg" />
+    <Content Include="Imagenes\razas\draconidos.jpg" />
+    <Content Include="Imagenes\razas\drow.png" />
+    <Content Include="Imagenes\razas\elfos.jpg" />
+    <Content Include="Imagenes\razas\enanos.jpg" />
+    <Content Include="Imagenes\razas\gnomos.jpg" />
+    <Content Include="Imagenes\razas\hobbit.jpg" />
+    <Content Include="Imagenes\razas\hombre_bestia.jpg" />
+    <Content Include="Imagenes\razas\humanos.jpg" />
+    <Content Include="Imagenes\razas\orco.jpg" />
+    <Content Include="Imagenes\razas\semielfo.jpg" />
+    <Content Include="Imagenes\razas\semiorco.jpg" />
+    <Content Include="Imagenes\razas\tifling.jpg" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\eventos.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\atributoes\Create.cshtml" />
+    <Content Include="Views\atributoes\Delete.cshtml" />
+    <Content Include="Views\atributoes\Details.cshtml" />
+    <Content Include="Views\atributoes\Edit.cshtml" />
+    <Content Include="Views\atributoes\Index.cshtml" />
+    <Content Include="Views\estadoes\Create.cshtml" />
+    <Content Include="Views\estadoes\Delete.cshtml" />
+    <Content Include="Views\estadoes\Details.cshtml" />
+    <Content Include="Views\estadoes\Edit.cshtml" />
+    <Content Include="Views\estadoes\Index.cshtml" />
+    <Content Include="Views\skills\Create.cshtml" />
+    <Content Include="Views\skills\Delete.cshtml" />
+    <Content Include="Views\skills\Details.cshtml" />
+    <Content Include="Views\skills\Edit.cshtml" />
+    <Content Include="Views\skills\Index.cshtml" />
+    <Content Include="Views\personajes\Create.cshtml" />
+    <Content Include="Views\personajes\Delete.cshtml" />
+    <Content Include="Views\personajes\Details.cshtml" />
+    <Content Include="Views\personajes\Edit.cshtml" />
+    <Content Include="Views\personajes\Index.cshtml">
+      <BrowseToURL>~/personajes/Index</BrowseToURL>
+    </Content>
+    <Content Include="Views\asoc_personaje_skill\Create.cshtml" />
+    <Content Include="Views\asoc_personaje_skill\Delete.cshtml" />
+    <Content Include="Views\asoc_personaje_skill\Details.cshtml" />
+    <Content Include="Views\asoc_personaje_skill\Edit.cshtml" />
+    <Content Include="Views\asoc_personaje_skill\Index.cshtml" />
+    <Content Include="Views\personajes\_LayoutPage1.cshtml" />
+    <Content Include="Views\asoc_personaje_item\Create.cshtml" />
+    <Content Include="Views\asoc_personaje_item\Delete.cshtml" />
+    <Content Include="Views\asoc_personaje_item\Details.cshtml" />
+    <Content Include="Views\asoc_personaje_item\Edit.cshtml" />
+    <Content Include="Views\asoc_personaje_item\Index.cshtml" />
+    <Content Include="Views\items\Create.cshtml" />
+    <Content Include="Views\items\Delete.cshtml" />
+    <Content Include="Views\items\Details.cshtml" />
+    <Content Include="Views\items\Edit.cshtml" />
+    <Content Include="Views\items\Index.cshtml" />
+    <Content Include="Views\leveleos\Create.cshtml" />
+    <Content Include="Views\leveleos\Delete.cshtml" />
+    <Content Include="Views\leveleos\Details.cshtml" />
+    <Content Include="Views\leveleos\Edit.cshtml" />
+    <Content Include="Views\leveleos\Index.cshtml" />
+    <Content Include="Views\bestiario\Create.cshtml" />
+    <Content Include="Views\bestiario\Delete.cshtml" />
+    <Content Include="Views\bestiario\Details.cshtml" />
+    <Content Include="Views\bestiario\Edit.cshtml" />
+    <Content Include="Views\bestiario\Index.cshtml" />
+    <Content Include="Views\encuentros\Index.cshtml" />
+    <Content Include="Views\razas\Create.cshtml" />
+    <Content Include="Views\razas\Delete.cshtml" />
+    <Content Include="Views\razas\Details.cshtml" />
+    <Content Include="Views\razas\Edit.cshtml" />
+    <Content Include="Views\razas\Index.cshtml" />
+    <Content Include="Views\clases\Create.cshtml" />
+    <Content Include="Views\clases\Delete.cshtml" />
+    <Content Include="Views\clases\Details.cshtml" />
+    <Content Include="Views\clases\Edit.cshtml" />
+    <Content Include="Views\clases\Index.cshtml" />
+    <Content Include="Views\encuentros\Details_mon.cshtml" />
+    <Content Include="Views\personajes\_LayoutPage1_sincabecera.cshtml" />
+    <Content Include="Views\encuentros\Details_pj.cshtml" />
+    <Content Include="Views\mochilas\Create.cshtml" />
+    <Content Include="Views\mochilas\Delete.cshtml" />
+    <Content Include="Views\mochilas\Details.cshtml" />
+    <Content Include="Views\mochilas\Edit.cshtml" />
+    <Content Include="Views\mochilas\Index.cshtml" />
+    <Content Include="Views\asoc_personaje_mochila\Create.cshtml" />
+    <Content Include="Views\asoc_personaje_mochila\Delete.cshtml" />
+    <Content Include="Views\asoc_personaje_mochila\Details.cshtml" />
+    <Content Include="Views\asoc_personaje_mochila\Edit.cshtml" />
+    <Content Include="Views\asoc_personaje_mochila\Index.cshtml" />
+    <Content Include="Views\mascotas\Create.cshtml" />
+    <Content Include="Views\mascotas\Delete.cshtml" />
+    <Content Include="Views\mascotas\Details.cshtml" />
+    <Content Include="Views\mascotas\Edit.cshtml" />
+    <Content Include="Views\mascotas\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Imagenes\mapas\" />
+    <Folder Include="Views\dados\" />
+    <Folder Include="Views\Index\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63435</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44358/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

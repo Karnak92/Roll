@@ -1,0 +1,271 @@
+﻿@model IEnumerable<Roll.personajes>
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nivel)
+            </th>
+            <th>
+                @*Html.DisplayNameFor(model => model.razas.raza_nombre)*@
+                Raza
+            </th>
+            <th>
+                @*Html.DisplayNameFor(model => model.clases.clas_nombre)*@
+                Clase
+            </th>
+            <th>
+                @*Html.DisplayNameFor(model => model.atributo1.atributo_nombre)*@
+                Atributo
+            </th>
+            <th>
+                @*Html.DisplayNameFor(model => model.estado1.est_nombre)*@
+                Estado
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.habilitado)
+            </th>
+
+            @*<th>
+            @Html.DisplayNameFor(model => model.vida_real)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.energia_real)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.atk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mag_atk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.armor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.plata)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cobre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vida_actual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.energia_actual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fuerza_inicial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fuerza_real)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fuerza_actual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.intel_ini)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.intel_real)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.intel_actual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sab_ini)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sab_real)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sab_actual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.agi_ini)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.agi_real)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.agi_actual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.res_ini)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.res_real)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.res_actual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.velocidad_ini)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.velocidad_real)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.velocidad_actual)
+        </th>
+            *@
+
+
+
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.habilitado == true)
+            {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nivel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.razas.raza_nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clases.clas_nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.atributo1.atributo_nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado1.est_nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.habilitado)
+        </td>
+        @*
+        <td>
+            @Html.DisplayFor(modelItem => item.vida_real)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.energia_real)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.atk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mag_atk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.armor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.oro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.plata)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cobre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vida_actual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.energia_actual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fuerza_inicial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fuerza_real)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fuerza_actual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.intel_ini)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.intel_real)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.intel_actual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sab_ini)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sab_real)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sab_actual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.agi_ini)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.agi_real)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.agi_actual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.res_ini)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.res_real)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.res_actual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.velocidad_ini)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.velocidad_real)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.velocidad_actual)
+        </td>
+        *@
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+        </td>
+    </tr>
+
+
+            }
+
+        }
+
+    </table>
+</body>
+</html>

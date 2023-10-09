@@ -1,0 +1,252 @@
+﻿@model Roll.Models.party_mon_calculadora
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1_sincabecera.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>monstruos</h4>
+        <hr />
+        <div class="col-md-6">
+            <div class="row">
+                <dl class="dl-horizontal">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.monstruo.monstruos.nombre)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.monstruo.monstruos.nombre)
+                    </dd>
+
+                    <dt>
+                        Apariencia
+                    </dt>
+
+                    <dd>
+                        <img class="personaje_img" src="~/Imagenes/monstruos/@Html.DisplayFor(model => model.monstruo.monstruos.nombre_imagen)" />
+                    </dd>
+
+                </dl>
+
+            </div>
+            <div class="row">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.monstruo.monstruos.tier)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.monstruo.monstruos.tier)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.monstruo.monstruos.descripcion)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.monstruo.monstruos.descripcion)
+                    </dd>
+
+                    <dt>
+                        Vida
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.monstruo.vida_actual)/@Html.DisplayFor(model => model.monstruo.vida_max)
+                    </dd>
+
+                    <dt>
+                        Mana
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.monstruo.mana_actual)/@Html.DisplayFor(model => model.monstruo.mana_max)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.monstruo.monstruos.ataque_basico)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.monstruo.monstruos.ataque_basico)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.monstruo.monstruos.ataque_especial)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.monstruo.monstruos.ataque_especial)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.monstruo.monstruos.velocidad)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.monstruo.monstruos.velocidad)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.monstruo.monstruos.armor)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.monstruo.monstruos.armor)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.monstruo.monstruos.mr)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.monstruo.monstruos.mr)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.monstruo.monstruos.evasion)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.monstruo.monstruos.evasion)
+                    </dd>
+
+                    <dt>
+                        Experiencia ganada por kill
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.monstruo.monstruos.experiencia)
+                    </dd>
+                </dl>
+            </div>
+            
+        </div>
+        <div class="col-md-6 fondo_calculadora recuadro">
+            <div class="row">&nbsp; </div>
+            <div class="row">
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.id_personaje, "id_personaje", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("id_personaje", null, htmlAttributes: new { @class = "form-control " })
+                            @Html.ValidationMessageFor(model => model.id_personaje, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">Basico</div>
+                    <div class="col-md-4">
+                        <label class="switch">
+                            <input class="" id="es_skill" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="col-md-4">Skill</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-9">
+                                Agilidad PJ
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" id="agi_pj" value="0" class="input_lvl_stats" disabled/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                Velocidad PJ
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" id="vel_pj" value="0" class="input_lvl_stats" disabled/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                Daño PJ
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" id="danio_pj" value="0" class="input_lvl_stats" disabled/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 recuadro">
+                        <div class="row">
+                            <input type="radio" id="esquive" name="tipo_danio" value="1" checked>
+                            <label for="esquive">Esquive y Armadura</label>
+                        </div>
+                        <div class="row">
+                            <input type="radio" id="resistencia" name="tipo_danio" value="2">
+                            <label for="resistencia">Armadura</label>
+                        </div>
+                        <div class="row">
+                            <input type="radio" id="directo" name="tipo_danio" value="3">
+                            <label for="directo">Daño Directo</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-9">
+                                Dado Prec.
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" id="dado_prec" value="0" class="input_lvl_stats" />
+                            </div>
+                        </div>
+                        <div class="row">&nbsp; </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                Daño
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" id="danio_skill" value="0" class="input_lvl_stats" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">Fisico</div>
+                    <div class="col-md-4">
+                        <label class="switch">
+                            <input class="" id="es_danio_magico" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="col-md-4">Magico</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <button id="boton_impactar_danio" class="" id_party_mon="@Html.DisplayFor(model => model.monstruo.id)">guardar</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Descontar mana</div>
+                    <div class="col-md-4">
+                        <input type="number" id="mana_desc" value="0" class="input_lvl_stats" />
+                    </div>
+                    <div class="col-md-4">
+                        <button id="boton_mana_mon_desc" class="" id_party_mon="@Html.DisplayFor(model => model.monstruo.id)">Usar Mana</button>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</body>
+</html>

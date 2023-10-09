@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RollModelStoreContainer" CdmEntityContainer="RollEntities">
+    <EntitySetMapping Name="asoc_personaje_item">
+      <EntityTypeMapping TypeName="RollModel.asoc_personaje_item">
+        <MappingFragment StoreEntitySet="asoc_personaje_item">
+          <ScalarProperty Name="equipado" ColumnName="equipado" />
+          <ScalarProperty Name="id_asoc" ColumnName="id_asoc" />
+          <ScalarProperty Name="id_personaje" ColumnName="id_personaje" />
+          <ScalarProperty Name="id_item" ColumnName="id_item" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="asoc_personaje_skill">
+      <EntityTypeMapping TypeName="RollModel.asoc_personaje_skill">
+        <MappingFragment StoreEntitySet="asoc_personaje_skill">
+          <ScalarProperty Name="id_asoc" ColumnName="id_asoc" />
+          <ScalarProperty Name="id_personaje" ColumnName="id_personaje" />
+          <ScalarProperty Name="id_skill" ColumnName="id_skill" />
+          <ScalarProperty Name="usos" ColumnName="usos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="atributo">
+      <EntityTypeMapping TypeName="RollModel.atributo">
+        <MappingFragment StoreEntitySet="atributo">
+          <ScalarProperty Name="id_atributo" ColumnName="id_atributo" />
+          <ScalarProperty Name="atributo_nombre" ColumnName="atributo_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clases">
+      <EntityTypeMapping TypeName="RollModel.clases">
+        <MappingFragment StoreEntitySet="clases">
+          <ScalarProperty Name="clas_imagen" ColumnName="clas_imagen" />
+          <ScalarProperty Name="id_clase" ColumnName="id_clase" />
+          <ScalarProperty Name="clas_nombre" ColumnName="clas_nombre" />
+          <ScalarProperty Name="clas_fuerza" ColumnName="clas_fuerza" />
+          <ScalarProperty Name="clas_inteligencia" ColumnName="clas_inteligencia" />
+          <ScalarProperty Name="clas_sabiduria" ColumnName="clas_sabiduria" />
+          <ScalarProperty Name="clas_agilidad" ColumnName="clas_agilidad" />
+          <ScalarProperty Name="clas_resistencia" ColumnName="clas_resistencia" />
+          <ScalarProperty Name="clas_aspecto" ColumnName="clas_aspecto" />
+          <ScalarProperty Name="clas_descripcion" ColumnName="clas_descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estado">
+      <EntityTypeMapping TypeName="RollModel.estado">
+        <MappingFragment StoreEntitySet="estado">
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="est_nombre" ColumnName="est_nombre" />
+          <ScalarProperty Name="est_descrip" ColumnName="est_descrip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="items">
+      <EntityTypeMapping TypeName="RollModel.items">
+        <MappingFragment StoreEntitySet="items">
+          <ScalarProperty Name="item_tier" ColumnName="item_tier" />
+          <ScalarProperty Name="peso" ColumnName="peso" />
+          <ScalarProperty Name="item_imagen_nombre" ColumnName="item_imagen_nombre" />
+          <ScalarProperty Name="item_tipo" ColumnName="item_tipo" />
+          <ScalarProperty Name="item_clasificacion" ColumnName="item_clasificacion" />
+          <ScalarProperty Name="item_mag_def" ColumnName="item_mag_def" />
+          <ScalarProperty Name="item_def" ColumnName="item_def" />
+          <ScalarProperty Name="item_mag_atk" ColumnName="item_mag_atk" />
+          <ScalarProperty Name="item_atk" ColumnName="item_atk" />
+          <ScalarProperty Name="id_item" ColumnName="id_item" />
+          <ScalarProperty Name="item_nombre" ColumnName="item_nombre" />
+          <ScalarProperty Name="item_categoria" ColumnName="item_categoria" />
+          <ScalarProperty Name="item_descripcion" ColumnName="item_descripcion" />
+          <ScalarProperty Name="item_bonificacion" ColumnName="item_bonificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personajes">
+      <EntityTypeMapping TypeName="RollModel.personajes">
+        <MappingFragment StoreEntitySet="personajes">
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+          <ScalarProperty Name="raza" ColumnName="raza" />
+          <ScalarProperty Name="clase" ColumnName="clase" />
+          <ScalarProperty Name="atributo" ColumnName="atributo" />
+          <ScalarProperty Name="vida_real" ColumnName="vida_real" />
+          <ScalarProperty Name="energia_real" ColumnName="energia_real" />
+          <ScalarProperty Name="atk" ColumnName="atk" />
+          <ScalarProperty Name="mag_atk" ColumnName="mag_atk" />
+          <ScalarProperty Name="armor" ColumnName="armor" />
+          <ScalarProperty Name="mr" ColumnName="mr" />
+          <ScalarProperty Name="oro" ColumnName="oro" />
+          <ScalarProperty Name="plata" ColumnName="plata" />
+          <ScalarProperty Name="cobre" ColumnName="cobre" />
+          <ScalarProperty Name="vida_actual" ColumnName="vida_actual" />
+          <ScalarProperty Name="energia_actual" ColumnName="energia_actual" />
+          <ScalarProperty Name="fuerza_inicial" ColumnName="fuerza_inicial" />
+          <ScalarProperty Name="fuerza_real" ColumnName="fuerza_real" />
+          <ScalarProperty Name="fuerza_actual" ColumnName="fuerza_actual" />
+          <ScalarProperty Name="intel_ini" ColumnName="intel_ini" />
+          <ScalarProperty Name="intel_real" ColumnName="intel_real" />
+          <ScalarProperty Name="intel_actual" ColumnName="intel_actual" />
+          <ScalarProperty Name="sab_ini" ColumnName="sab_ini" />
+          <ScalarProperty Name="sab_real" ColumnName="sab_real" />
+          <ScalarProperty Name="sab_actual" ColumnName="sab_actual" />
+          <ScalarProperty Name="agi_ini" ColumnName="agi_ini" />
+          <ScalarProperty Name="agi_real" ColumnName="agi_real" />
+          <ScalarProperty Name="agi_actual" ColumnName="agi_actual" />
+          <ScalarProperty Name="res_ini" ColumnName="res_ini" />
+          <ScalarProperty Name="res_real" ColumnName="res_real" />
+          <ScalarProperty Name="res_actual" ColumnName="res_actual" />
+          <ScalarProperty Name="velocidad_ini" ColumnName="velocidad_ini" />
+          <ScalarProperty Name="velocidad_real" ColumnName="velocidad_real" />
+          <ScalarProperty Name="velocidad_actual" ColumnName="velocidad_actual" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="RollModel.personajes">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="RollModel.Store.personaje_insert">
+            <ScalarProperty Name="atributo" ParameterName="atributo" />
+            <ScalarProperty Name="clase" ParameterName="clase" />
+            <ScalarProperty Name="raza" ParameterName="raza" />
+            <ScalarProperty Name="nombre" ParameterName="nombre" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="RollModel.Store.personajes_update">
+            <ScalarProperty Name="imagen" ParameterName="imagen" Version="Current" />
+            <ScalarProperty Name="habilitado" ParameterName="habilitado" Version="Current" />
+            <ScalarProperty Name="estado" ParameterName="estado" Version="Current" />
+            <ScalarProperty Name="velocidad_actual" ParameterName="velocidad_actual" Version="Current" />
+            <ScalarProperty Name="velocidad_real" ParameterName="velocidad_real" Version="Current" />
+            <ScalarProperty Name="velocidad_ini" ParameterName="velocidad_ini" Version="Current" />
+            <ScalarProperty Name="res_actual" ParameterName="res_actual" Version="Current" />
+            <ScalarProperty Name="res_real" ParameterName="res_real" Version="Current" />
+            <ScalarProperty Name="res_ini" ParameterName="res_ini" Version="Current" />
+            <ScalarProperty Name="agi_actual" ParameterName="agi_actual" Version="Current" />
+            <ScalarProperty Name="agi_real" ParameterName="agi_real" Version="Current" />
+            <ScalarProperty Name="agi_ini" ParameterName="agi_ini" Version="Current" />
+            <ScalarProperty Name="sab_actual" ParameterName="sab_actual" Version="Current" />
+            <ScalarProperty Name="sab_real" ParameterName="sab_real" Version="Current" />
+            <ScalarProperty Name="sab_ini" ParameterName="sab_ini" Version="Current" />
+            <ScalarProperty Name="intel_actual" ParameterName="intel_actual" Version="Current" />
+            <ScalarProperty Name="intel_real" ParameterName="intel_real" Version="Current" />
+            <ScalarProperty Name="intel_ini" ParameterName="intel_ini" Version="Current" />
+            <ScalarProperty Name="fuerza_actual" ParameterName="fuerza_actual" Version="Current" />
+            <ScalarProperty Name="fuerza_real" ParameterName="fuerza_real" Version="Current" />
+            <ScalarProperty Name="fuerza_inicial" ParameterName="fuerza_inicial" Version="Current" />
+            <ScalarProperty Name="energia_actual" ParameterName="energia_actual" Version="Current" />
+            <ScalarProperty Name="vida_actual" ParameterName="vida_actual" Version="Current" />
+            <ScalarProperty Name="cobre" ParameterName="cobre" Version="Current" />
+            <ScalarProperty Name="plata" ParameterName="plata" Version="Current" />
+            <ScalarProperty Name="oro" ParameterName="oro" Version="Current" />
+            <ScalarProperty Name="mr" ParameterName="mr" Version="Current" />
+            <ScalarProperty Name="armor" ParameterName="armor" Version="Current" />
+            <ScalarProperty Name="mag_atk" ParameterName="mag_atk" Version="Current" />
+            <ScalarProperty Name="atk" ParameterName="atk" Version="Current" />
+            <ScalarProperty Name="energia_real" ParameterName="energia_real" Version="Current" />
+            <ScalarProperty Name="vida_real" ParameterName="vida_real" Version="Current" />
+            <ScalarProperty Name="atributo" ParameterName="atributo" Version="Current" />
+            <ScalarProperty Name="clase" ParameterName="clase" Version="Current" />
+            <ScalarProperty Name="raza" ParameterName="raza" Version="Current" />
+            <ScalarProperty Name="nivel" ParameterName="nivel" Version="Current" />
+            <ScalarProperty Name="nombre" ParameterName="nombre" Version="Current" />
+            <ScalarProperty Name="id" ParameterName="id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="RollModel.Store.personajes_delete">
+            <ScalarProperty Name="id" ParameterName="id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="razas">
+      <EntityTypeMapping TypeName="RollModel.razas">
+        <MappingFragment StoreEntitySet="razas">
+          <ScalarProperty Name="raza_imagen" ColumnName="raza_imagen" />
+          <ScalarProperty Name="id_raza" ColumnName="id_raza" />
+          <ScalarProperty Name="raza_nombre" ColumnName="raza_nombre" />
+          <ScalarProperty Name="raza_fuerza" ColumnName="raza_fuerza" />
+          <ScalarProperty Name="raza_inteligencia" ColumnName="raza_inteligencia" />
+          <ScalarProperty Name="raza_sabiduria" ColumnName="raza_sabiduria" />
+          <ScalarProperty Name="raza_agilidad" ColumnName="raza_agilidad" />
+          <ScalarProperty Name="raza_resistencia" ColumnName="raza_resistencia" />
+          <ScalarProperty Name="raza_mult_vida" ColumnName="raza_mult_vida" />
+          <ScalarProperty Name="raza_aspecto" ColumnName="raza_aspecto" />
+          <ScalarProperty Name="raza_afinidad_dioses" ColumnName="raza_afinidad_dioses" />
+          <ScalarProperty Name="raza_caracteristicas" ColumnName="raza_caracteristicas" />
+          <ScalarProperty Name="raza_atributos" ColumnName="raza_atributos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="skill">
+      <EntityTypeMapping TypeName="RollModel.skill">
+        <MappingFragment StoreEntitySet="skill">
+          <ScalarProperty Name="id_skill" ColumnName="id_skill" />
+          <ScalarProperty Name="skill_nombre" ColumnName="skill_nombre" />
+          <ScalarProperty Name="skill_nivel" ColumnName="skill_nivel" />
+          <ScalarProperty Name="skill_tipo" ColumnName="skill_tipo" />
+          <ScalarProperty Name="skill_atributo" ColumnName="skill_atributo" />
+          <ScalarProperty Name="skill_costo" ColumnName="skill_costo" />
+          <ScalarProperty Name="skill_tipo_efecto" ColumnName="skill_tipo_efecto" />
+          <ScalarProperty Name="skill_danio" ColumnName="skill_danio" />
+          <ScalarProperty Name="skill_dado_basico" ColumnName="skill_dado_basico" />
+          <ScalarProperty Name="skill_requisito" ColumnName="skill_requisito" />
+          <ScalarProperty Name="skill_alineamiento" ColumnName="skill_alineamiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="RollModel.skill">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="RollModel.Store.skill_insert">
+            <ScalarProperty Name="skill_alineamiento" ParameterName="skill_alineamiento" />
+            <ScalarProperty Name="skill_requisito" ParameterName="skill_requisito" />
+            <ScalarProperty Name="skill_dado_basico" ParameterName="skill_dado_basico" />
+            <ScalarProperty Name="skill_danio" ParameterName="skill_danio" />
+            <ScalarProperty Name="skill_tipo_efecto" ParameterName="skill_tipo_efecto" />
+            <ScalarProperty Name="skill_costo" ParameterName="skill_costo" />
+            <ScalarProperty Name="skill_atributo" ParameterName="skill_atributo" />
+            <ScalarProperty Name="skill_tipo" ParameterName="skill_tipo" />
+            <ScalarProperty Name="skill_nivel" ParameterName="skill_nivel" />
+            <ScalarProperty Name="skill_nombre" ParameterName="skill_nombre" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="RollModel.Store.skill_update">
+            <ScalarProperty Name="id_skill" ParameterName="skill_id" Version="Current" />
+            <ScalarProperty Name="skill_alineamiento" ParameterName="skill_alineamiento" Version="Current" />
+            <ScalarProperty Name="skill_requisito" ParameterName="skill_requisito" Version="Current" />
+            <ScalarProperty Name="skill_dado_basico" ParameterName="skill_dado_basico" Version="Current" />
+            <ScalarProperty Name="skill_danio" ParameterName="skill_danio" Version="Current" />
+            <ScalarProperty Name="skill_tipo_efecto" ParameterName="skill_tipo_efecto" Version="Current" />
+            <ScalarProperty Name="skill_costo" ParameterName="skill_costo" Version="Current" />
+            <ScalarProperty Name="skill_atributo" ParameterName="skill_atributo" Version="Current" />
+            <ScalarProperty Name="skill_tipo" ParameterName="skill_tipo" Version="Current" />
+            <ScalarProperty Name="skill_nivel" ParameterName="skill_nivel" Version="Current" />
+            <ScalarProperty Name="skill_nombre" ParameterName="skill_nombre" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="RollModel.Store.skill_delete">
+            <ScalarProperty Name="id_skill" ParameterName="skill_id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="economia" FunctionName="RollModel.Store.economia" />
+    <FunctionImportMapping FunctionImportName="estadistica_update_actual" FunctionName="RollModel.Store.estadistica_update_actual" />
+    <FunctionImportMapping FunctionImportName="estadistica_update_real" FunctionName="RollModel.Store.estadistica_update_real" />
+    <FunctionImportMapping FunctionImportName="lvl_up" FunctionName="RollModel.Store.lvl_up" />
+    <FunctionImportMapping FunctionImportName="personaje_insert" FunctionName="RollModel.Store.personaje_insert" />
+    <FunctionImportMapping FunctionImportName="personajes_delete" FunctionName="RollModel.Store.personajes_delete" />
+    <FunctionImportMapping FunctionImportName="personajes_update" FunctionName="RollModel.Store.personajes_update" />
+    <FunctionImportMapping FunctionImportName="get_items" FunctionName="RollModel.Store.get_items">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RollModel.get_items_Result">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="bono" ColumnName="bono" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="equipado" ColumnName="equipado" />
+          <ScalarProperty Name="item_atk" ColumnName="item_atk" />
+          <ScalarProperty Name="item_mag_atk" ColumnName="item_mag_atk" />
+          <ScalarProperty Name="item_def" ColumnName="item_def" />
+          <ScalarProperty Name="item_mag_def" ColumnName="item_mag_def" />
+          <ScalarProperty Name="id_asoc" ColumnName="id_asoc" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="clasificacion" ColumnName="clasificacion" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="nombre_imagen" ColumnName="nombre_imagen" />
+          <ScalarProperty Name="peso" ColumnName="peso" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_skills" FunctionName="RollModel.Store.get_skills">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RollModel.get_skills_Result">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="efecto" ColumnName="efecto" />
+          <ScalarProperty Name="danio" ColumnName="danio" />
+          <ScalarProperty Name="requisitos" ColumnName="requisitos" />
+          <ScalarProperty Name="usos" ColumnName="usos" />
+          <ScalarProperty Name="id_asoc" ColumnName="id_asoc" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="leveleo">
+      <EntityTypeMapping TypeName="RollModel.leveleo">
+        <MappingFragment StoreEntitySet="leveleo">
+          <ScalarProperty Name="puntos_disponibles" ColumnName="puntos_disponibles" />
+          <ScalarProperty Name="id_personaje" ColumnName="id_personaje" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="get_lvl_up" FunctionName="RollModel.Store.get_lvl_up" />
+    <FunctionImportMapping FunctionImportName="skill_delete" FunctionName="RollModel.Store.skill_delete" />
+    <FunctionImportMapping FunctionImportName="skill_insert" FunctionName="RollModel.Store.skill_insert" />
+    <FunctionImportMapping FunctionImportName="skill_update" FunctionName="RollModel.Store.skill_update" />
+    <FunctionImportMapping FunctionImportName="skill_up_use" FunctionName="RollModel.Store.skill_up_use" />
+    <FunctionImportMapping FunctionImportName="get_skills_listado_resumido" FunctionName="RollModel.Store.get_skills_listado_resumido">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RollModel.get_skills_listado_resumido_Result">
+          <ScalarProperty Name="id_skill" ColumnName="id_skill" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="alineamiento" ColumnName="alineamiento" />
+          <ScalarProperty Name="requisitos" ColumnName="requisitos" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="crear_asignacion_skill" FunctionName="RollModel.Store.crear_asignacion_skill" />
+    <FunctionImportMapping FunctionImportName="crear_asignacion_item" FunctionName="RollModel.Store.crear_asignacion_item" />
+    <FunctionImportMapping FunctionImportName="equip_un" FunctionName="RollModel.Store.equip_un" />
+    <EntitySetMapping Name="monstruos">
+      <EntityTypeMapping TypeName="RollModel.monstruos">
+        <MappingFragment StoreEntitySet="monstruos">
+          <ScalarProperty Name="nombre_imagen" ColumnName="nombre_imagen" />
+          <ScalarProperty Name="experiencia" ColumnName="experiencia" />
+          <ScalarProperty Name="evasion" ColumnName="evasion" />
+          <ScalarProperty Name="mr" ColumnName="mr" />
+          <ScalarProperty Name="armor" ColumnName="armor" />
+          <ScalarProperty Name="velocidad" ColumnName="velocidad" />
+          <ScalarProperty Name="ataque_especial" ColumnName="ataque_especial" />
+          <ScalarProperty Name="ataque_basico" ColumnName="ataque_basico" />
+          <ScalarProperty Name="mana" ColumnName="mana" />
+          <ScalarProperty Name="vida" ColumnName="vida" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="tier" ColumnName="tier" />
+          <ScalarProperty Name="mon_id" ColumnName="mon_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="buff_up" FunctionName="RollModel.Store.buff_up" />
+    <EntitySetMapping Name="encuentro">
+      <EntityTypeMapping TypeName="RollModel.encuentro">
+        <MappingFragment StoreEntitySet="encuentro">
+          <ScalarProperty Name="id_party_mon" ColumnName="id_party_mon" />
+          <ScalarProperty Name="id_party_pj" ColumnName="id_party_pj" />
+          <ScalarProperty Name="id_encuentro" ColumnName="id_encuentro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="party_mon_cabecera">
+      <EntityTypeMapping TypeName="RollModel.party_mon_cabecera">
+        <MappingFragment StoreEntitySet="party_mon_cabecera">
+          <ScalarProperty Name="nombre_party_mon" ColumnName="nombre_party_mon" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="party_mon">
+      <EntityTypeMapping TypeName="RollModel.party_mon">
+        <MappingFragment StoreEntitySet="party_mon">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mon_estado" ColumnName="mon_estado" />
+          <ScalarProperty Name="mana_actual" ColumnName="mana_actual" />
+          <ScalarProperty Name="mana_max" ColumnName="mana_max" />
+          <ScalarProperty Name="vida_actual" ColumnName="vida_actual" />
+          <ScalarProperty Name="vida_max" ColumnName="vida_max" />
+          <ScalarProperty Name="id_mon" ColumnName="id_mon" />
+          <ScalarProperty Name="id_party_mon" ColumnName="id_party_mon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="party_cabecera">
+      <EntityTypeMapping TypeName="RollModel.party_cabecera">
+        <MappingFragment StoreEntitySet="party_cabecera">
+          <ScalarProperty Name="rango_gremio" ColumnName="rango_gremio" />
+          <ScalarProperty Name="nombre_party" ColumnName="nombre_party" />
+          <ScalarProperty Name="id_party" ColumnName="id_party" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="party">
+      <EntityTypeMapping TypeName="RollModel.party">
+        <MappingFragment StoreEntitySet="party">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="pj_estado" ColumnName="pj_estado" />
+          <ScalarProperty Name="id_pj" ColumnName="id_pj" />
+          <ScalarProperty Name="id_party_pj" ColumnName="id_party_pj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="agregar_a_la_party" FunctionName="RollModel.Store.agregar_a_la_party" />
+    <FunctionImportMapping FunctionImportName="agregar_a_la_party_mon" FunctionName="RollModel.Store.agregar_a_la_party_mon" />
+    <FunctionImportMapping FunctionImportName="eliminar_miembro_party_mon" FunctionName="RollModel.Store.eliminar_miembro_party_mon" />
+    <FunctionImportMapping FunctionImportName="modificar_miembro_party_mon" FunctionName="RollModel.Store.modificar_miembro_party_mon" />
+    <FunctionImportMapping FunctionImportName="descontar_mana_mon" FunctionName="RollModel.Store.descontar_mana_mon" />
+    <FunctionImportMapping FunctionImportName="get_atributos_calculadora" FunctionName="RollModel.Store.get_atributos_calculadora">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RollModel.get_atributos_calculadora_Result">
+          <ScalarProperty Name="pj_agi" ColumnName="pj_agi" />
+          <ScalarProperty Name="pj_vel" ColumnName="pj_vel" />
+          <ScalarProperty Name="danio" ColumnName="danio" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="impactar_danio_a_mon" FunctionName="RollModel.Store.impactar_danio_a_mon" />
+    <FunctionImportMapping FunctionImportName="select_pj" FunctionName="RollModel.Store.select_pj">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RollModel.select_pj_Result">
+          <ScalarProperty Name="id_personaje" ColumnName="id_personaje" />
+          <ScalarProperty Name="nombre_personaje" ColumnName="nombre_personaje" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_numeros_pj_calculadora" FunctionName="RollModel.Store.get_numeros_pj_calculadora">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RollModel.get_numeros_pj_calculadora_Result">
+          <ScalarProperty Name="id_pj" ColumnName="id_pj" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="estado_numero" ColumnName="estado_numero" />
+          <ScalarProperty Name="estado_nombre" ColumnName="estado_nombre" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+          <ScalarProperty Name="armor" ColumnName="armor" />
+          <ScalarProperty Name="mr" ColumnName="mr" />
+          <ScalarProperty Name="velocidad" ColumnName="velocidad" />
+          <ScalarProperty Name="vida_actual" ColumnName="vida_actual" />
+          <ScalarProperty Name="vida_max" ColumnName="vida_max" />
+          <ScalarProperty Name="mana_actual" ColumnName="mana_actual" />
+          <ScalarProperty Name="mana_max" ColumnName="mana_max" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="impactar_danio_a_pj" FunctionName="RollModel.Store.impactar_danio_a_pj" />
+    <EntitySetMapping Name="mochilas">
+      <EntityTypeMapping TypeName="RollModel.mochilas">
+        <MappingFragment StoreEntitySet="mochilas">
+          <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+          <ScalarProperty Name="multiplicador_peso" ColumnName="multiplicador_peso" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id_mochila" ColumnName="id_mochila" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="asoc_personaje_mochila">
+      <EntityTypeMapping TypeName="RollModel.asoc_personaje_mochila">
+        <MappingFragment StoreEntitySet="asoc_personaje_mochila">
+          <ScalarProperty Name="equipado" ColumnName="equipado" />
+          <ScalarProperty Name="peso_ocupado" ColumnName="peso_ocupado" />
+          <ScalarProperty Name="id_mochila" ColumnName="id_mochila" />
+          <ScalarProperty Name="id_personaje" ColumnName="id_personaje" />
+          <ScalarProperty Name="id_asoc" ColumnName="id_asoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="RollModel.asoc_personaje_mochila">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="RollModel.Store.crear_asignacion_mochila">
+            <ScalarProperty Name="peso_ocupado" ParameterName="peso_ocupado" />
+            <ScalarProperty Name="id_mochila" ParameterName="id_mochila" />
+            <ScalarProperty Name="id_personaje" ParameterName="id_personaje" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="RollModel.Store.modificar_asignacion_mochila">
+            <ScalarProperty Name="equipado" ParameterName="equipado" Version="Current" />
+            <ScalarProperty Name="peso_ocupado" ParameterName="peso_ocupado" Version="Current" />
+            <ScalarProperty Name="id_mochila" ParameterName="id_mochila" Version="Current" />
+            <ScalarProperty Name="id_personaje" ParameterName="id_personaje" Version="Current" />
+            <ScalarProperty Name="id_asoc" ParameterName="id_asoc" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="RollModel.Store.eliminar_asignacion_mochila">
+            <ScalarProperty Name="id_asoc" ParameterName="id_asoc" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="crear_asignacion_mochila" FunctionName="RollModel.Store.crear_asignacion_mochila" />
+    <FunctionImportMapping FunctionImportName="get_peso_mochila" FunctionName="RollModel.Store.get_peso_mochila">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RollModel.get_peso_mochila_Result">
+          <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+          <ScalarProperty Name="tipo_mochila" ColumnName="tipo_mochila" />
+          <ScalarProperty Name="peso_cargado" ColumnName="peso_cargado" />
+          <ScalarProperty Name="equipado" ColumnName="equipado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_peso_total" FunctionName="RollModel.Store.get_peso_total">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RollModel.get_peso_total_Result">
+          <ScalarProperty Name="peso_total_ocupado" ColumnName="peso_total_ocupado" />
+          <ScalarProperty Name="peso_cubierto" ColumnName="peso_cubierto" />
+          <ScalarProperty Name="penalizacion_peso" ColumnName="penalizacion_peso" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="eliminar_asignacion_mochila" FunctionName="RollModel.Store.eliminar_asignacion_mochila" />
+    <FunctionImportMapping FunctionImportName="modificar_asignacion_mochila" FunctionName="RollModel.Store.modificar_asignacion_mochila" />
+    <FunctionImportMapping FunctionImportName="equip_un_mochila" FunctionName="RollModel.Store.equip_un_mochila" />
+    <FunctionImportMapping FunctionImportName="jugadores_con_monedero" FunctionName="RollModel.Store.jugadores_con_monedero">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RollModel.jugadores_con_monedero_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="mascotas">
+      <EntityTypeMapping TypeName="RollModel.mascotas">
+        <MappingFragment StoreEntitySet="mascotas">
+          <ScalarProperty Name="mascota_edad" ColumnName="mascota_edad" />
+          <ScalarProperty Name="mascota_afinidad" ColumnName="mascota_afinidad" />
+          <ScalarProperty Name="mascota_ancho" ColumnName="mascota_ancho" />
+          <ScalarProperty Name="mascota_altura" ColumnName="mascota_altura" />
+          <ScalarProperty Name="mascota_peso" ColumnName="mascota_peso" />
+          <ScalarProperty Name="mascota_capacidad_carga" ColumnName="mascota_capacidad_carga" />
+          <ScalarProperty Name="mascota_respira_agua" ColumnName="mascota_respira_agua" />
+          <ScalarProperty Name="mascota_nadar" ColumnName="mascota_nadar" />
+          <ScalarProperty Name="mascota_vuela" ColumnName="mascota_vuela" />
+          <ScalarProperty Name="mascota_montura" ColumnName="mascota_montura" />
+          <ScalarProperty Name="mascota_evolucion" ColumnName="mascota_evolucion" />
+          <ScalarProperty Name="mascota_evasion_actual" ColumnName="mascota_evasion_actual" />
+          <ScalarProperty Name="mascota_evasion_real" ColumnName="mascota_evasion_real" />
+          <ScalarProperty Name="mascota_evasion_inicial" ColumnName="mascota_evasion_inicial" />
+          <ScalarProperty Name="mascota_mr_actual" ColumnName="mascota_mr_actual" />
+          <ScalarProperty Name="mascota_mr_real" ColumnName="mascota_mr_real" />
+          <ScalarProperty Name="mascota_mr_inicial" ColumnName="mascota_mr_inicial" />
+          <ScalarProperty Name="mascota_armor_actual" ColumnName="mascota_armor_actual" />
+          <ScalarProperty Name="mascota_armor_real" ColumnName="mascota_armor_real" />
+          <ScalarProperty Name="mascota_armor_inicial" ColumnName="mascota_armor_inicial" />
+          <ScalarProperty Name="mascota_velocidad_actual" ColumnName="mascota_velocidad_actual" />
+          <ScalarProperty Name="mascota_velocidad_real" ColumnName="mascota_velocidad_real" />
+          <ScalarProperty Name="mascota_velocidad_inicial" ColumnName="mascota_velocidad_inicial" />
+          <ScalarProperty Name="mascota_mana_actual" ColumnName="mascota_mana_actual" />
+          <ScalarProperty Name="mascota_vida_actual" ColumnName="mascota_vida_actual" />
+          <ScalarProperty Name="mascota_mana_real" ColumnName="mascota_mana_real" />
+          <ScalarProperty Name="mascota_vida_real" ColumnName="mascota_vida_real" />
+          <ScalarProperty Name="mascota_mana_inicial" ColumnName="mascota_mana_inicial" />
+          <ScalarProperty Name="mascota_vida_inicial" ColumnName="mascota_vida_inicial" />
+          <ScalarProperty Name="mascota_especie" ColumnName="mascota_especie" />
+          <ScalarProperty Name="mascota_nombre" ColumnName="mascota_nombre" />
+          <ScalarProperty Name="mascota_nivel" ColumnName="mascota_nivel" />
+          <ScalarProperty Name="mascota_owner" ColumnName="mascota_owner" />
+          <ScalarProperty Name="mascota_id" ColumnName="mascota_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="get_mascotas" FunctionName="RollModel.Store.get_mascotas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RollModel.get_mascotas_Result">
+          <ScalarProperty Name="mascota_id" ColumnName="mascota_id" />
+          <ScalarProperty Name="mascota_nivel" ColumnName="mascota_nivel" />
+          <ScalarProperty Name="mascota_nombre" ColumnName="mascota_nombre" />
+          <ScalarProperty Name="mascota_especie" ColumnName="mascota_especie" />
+          <ScalarProperty Name="mascota_vida_inicial" ColumnName="mascota_vida_inicial" />
+          <ScalarProperty Name="mascota_mana_inicial" ColumnName="mascota_mana_inicial" />
+          <ScalarProperty Name="mascota_vida_real" ColumnName="mascota_vida_real" />
+          <ScalarProperty Name="mascota_mana_real" ColumnName="mascota_mana_real" />
+          <ScalarProperty Name="mascota_vida_actual" ColumnName="mascota_vida_actual" />
+          <ScalarProperty Name="mascota_mana_actual" ColumnName="mascota_mana_actual" />
+          <ScalarProperty Name="mascota_velocidad_inicial" ColumnName="mascota_velocidad_inicial" />
+          <ScalarProperty Name="mascota_velocidad_real" ColumnName="mascota_velocidad_real" />
+          <ScalarProperty Name="mascota_velocidad_actual" ColumnName="mascota_velocidad_actual" />
+          <ScalarProperty Name="mascota_armor_inicial" ColumnName="mascota_armor_inicial" />
+          <ScalarProperty Name="mascota_armor_real" ColumnName="mascota_armor_real" />
+          <ScalarProperty Name="mascota_armor_actual" ColumnName="mascota_armor_actual" />
+          <ScalarProperty Name="mascota_mr_inicial" ColumnName="mascota_mr_inicial" />
+          <ScalarProperty Name="mascota_mr_real" ColumnName="mascota_mr_real" />
+          <ScalarProperty Name="mascota_mr_actual" ColumnName="mascota_mr_actual" />
+          <ScalarProperty Name="mascota_evasion_inicial" ColumnName="mascota_evasion_inicial" />
+          <ScalarProperty Name="mascota_evasion_real" ColumnName="mascota_evasion_real" />
+          <ScalarProperty Name="mascota_evasion_actual" ColumnName="mascota_evasion_actual" />
+          <ScalarProperty Name="mascota_evolucion" ColumnName="mascota_evolucion" />
+          <ScalarProperty Name="mascota_montura" ColumnName="mascota_montura" />
+          <ScalarProperty Name="mascota_vuela" ColumnName="mascota_vuela" />
+          <ScalarProperty Name="mascota_nadar" ColumnName="mascota_nadar" />
+          <ScalarProperty Name="mascota_respira_agua" ColumnName="mascota_respira_agua" />
+          <ScalarProperty Name="mascota_capacidad_carga" ColumnName="mascota_capacidad_carga" />
+          <ScalarProperty Name="mascota_peso" ColumnName="mascota_peso" />
+          <ScalarProperty Name="mascota_altura" ColumnName="mascota_altura" />
+          <ScalarProperty Name="mascota_ancho" ColumnName="mascota_ancho" />
+          <ScalarProperty Name="mascota_afinidad" ColumnName="mascota_afinidad" />
+          <ScalarProperty Name="mascota_edad" ColumnName="mascota_edad" />
+          <ScalarProperty Name="nombre_imagen" ColumnName="nombre_imagen" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sugerir_activas" FunctionName="RollModel.Store.sugerir_activas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RollModel.sugerir_activas_Result">
+          <ScalarProperty Name="id_skill" ColumnName="id_skill" />
+          <ScalarProperty Name="skill_nombre" ColumnName="skill_nombre" />
+          <ScalarProperty Name="skill_costo" ColumnName="skill_costo" />
+          <ScalarProperty Name="skill_atributo" ColumnName="skill_atributo" />
+          <ScalarProperty Name="skill_tipo_efecto" ColumnName="skill_tipo_efecto" />
+          <ScalarProperty Name="skill_danio" ColumnName="skill_danio" />
+          <ScalarProperty Name="skill_requisito" ColumnName="skill_requisito" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sugerir_pasivas" FunctionName="RollModel.Store.sugerir_pasivas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RollModel.sugerir_pasivas_Result">
+          <ScalarProperty Name="id_skill" ColumnName="id_skill" />
+          <ScalarProperty Name="skill_nombre" ColumnName="skill_nombre" />
+          <ScalarProperty Name="skill_atributo" ColumnName="skill_atributo" />
+          <ScalarProperty Name="skill_tipo_efecto" ColumnName="skill_tipo_efecto" />
+          <ScalarProperty Name="skill_danio" ColumnName="skill_danio" />
+          <ScalarProperty Name="skill_requisito" ColumnName="skill_requisito" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

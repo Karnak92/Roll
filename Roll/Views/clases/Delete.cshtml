@@ -1,0 +1,96 @@
+﻿@model Roll.clases
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>clases</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.clas_nombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_fuerza)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.clas_fuerza)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_inteligencia)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.clas_inteligencia)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_sabiduria)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.clas_sabiduria)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_agilidad)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.clas_agilidad)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_resistencia)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.clas_resistencia)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_aspecto)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.clas_aspecto)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.clas_descripcion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.clas_descripcion)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

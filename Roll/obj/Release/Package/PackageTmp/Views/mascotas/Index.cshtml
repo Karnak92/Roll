@@ -1,0 +1,233 @@
+﻿@model IEnumerable<Roll.mascotas>
+
+@{
+    Layout = "/Views/personajes/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_nivel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_vida_inicial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_mana_inicial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_vida_real)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_mana_real)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_vida_actual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_mana_actual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_velocidad_inicial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_velocidad_real)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_velocidad_actual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_armor_inicial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_armor_real)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_armor_actual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_mr_inicial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_mr_real)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_mr_actual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_evasion_inicial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_evasion_real)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_evasion_actual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_evolucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_montura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_vuela)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_nadar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_respira_agua)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_capacidad_carga)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_peso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_altura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_ancho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_afinidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mascota_edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.personajes.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.monstruos.nombre)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_nivel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_vida_inicial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_mana_inicial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_vida_real)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_mana_real)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_vida_actual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_mana_actual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_velocidad_inicial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_velocidad_real)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_velocidad_actual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_armor_inicial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_armor_real)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_armor_actual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_mr_inicial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_mr_real)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_mr_actual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_evasion_inicial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_evasion_real)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_evasion_actual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_evolucion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_montura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_vuela)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_nadar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_respira_agua)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_capacidad_carga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_peso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_altura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_ancho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_afinidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mascota_edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.personajes.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monstruos.nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.mascota_id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.mascota_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.mascota_id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

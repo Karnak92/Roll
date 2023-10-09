@@ -1,0 +1,857 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RollModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="asoc_personaje_item">
+    <Key>
+      <PropertyRef Name="id_asoc" />
+    </Key>
+    <Property Name="id_asoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_personaje" Type="int" Nullable="false" />
+    <Property Name="id_item" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="equipado" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Roll.dbo.asoc_personaje_mochila' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="asoc_personaje_mochila">
+    <Key>
+      <PropertyRef Name="id_asoc" />
+    </Key>
+    <Property Name="id_asoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_personaje" Type="int" Nullable="false" />
+    <Property Name="id_mochila" Type="int" Nullable="false" />
+    <Property Name="peso_ocupado" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="equipado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="asoc_personaje_skill">
+    <Key>
+      <PropertyRef Name="id_asoc" />
+    </Key>
+    <Property Name="id_asoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_personaje" Type="int" Nullable="false" />
+    <Property Name="id_skill" Type="int" Nullable="false" />
+    <Property Name="usos" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="atributo">
+    <Key>
+      <PropertyRef Name="id_atributo" />
+    </Key>
+    <Property Name="id_atributo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="atributo_nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="clases">
+    <Key>
+      <PropertyRef Name="id_clase" />
+    </Key>
+    <Property Name="id_clase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clas_nombre" Type="nvarchar" MaxLength="255" />
+    <Property Name="clas_fuerza" Type="float" />
+    <Property Name="clas_inteligencia" Type="float" />
+    <Property Name="clas_sabiduria" Type="float" />
+    <Property Name="clas_agilidad" Type="float" />
+    <Property Name="clas_resistencia" Type="float" />
+    <Property Name="clas_aspecto" Type="float" />
+    <Property Name="clas_descripcion" Type="nvarchar" MaxLength="255" />
+    <Property Name="clas_imagen" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="encuentro">
+    <Key>
+      <PropertyRef Name="id_encuentro" />
+    </Key>
+    <Property Name="id_encuentro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_party_pj" Type="int" Nullable="false" />
+    <Property Name="id_party_mon" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="estado">
+    <Key>
+      <PropertyRef Name="id_estado" />
+    </Key>
+    <Property Name="id_estado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="est_nombre" Type="varchar" MaxLength="100" />
+    <Property Name="est_descrip" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="items">
+    <Key>
+      <PropertyRef Name="id_item" />
+    </Key>
+    <Property Name="id_item" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="item_nombre" Type="varchar" MaxLength="100" />
+    <Property Name="item_categoria" Type="varchar" MaxLength="50" />
+    <Property Name="item_clasificacion" Type="varchar" MaxLength="50" />
+    <Property Name="item_tipo" Type="varchar" MaxLength="50" />
+    <Property Name="item_descripcion" Type="varchar" MaxLength="500" />
+    <Property Name="item_bonificacion" Type="varchar" MaxLength="150" />
+    <Property Name="item_atk" Type="float" />
+    <Property Name="item_mag_atk" Type="float" />
+    <Property Name="item_def" Type="float" />
+    <Property Name="item_mag_def" Type="float" />
+    <Property Name="item_imagen_nombre" Type="varchar" MaxLength="500" />
+    <Property Name="peso" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="item_tier" Type="int" />
+  </EntityType>
+  <EntityType Name="leveleo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_personaje" Type="int" />
+    <Property Name="puntos_disponibles" Type="int" />
+  </EntityType>
+  <EntityType Name="mascotas">
+    <Key>
+      <PropertyRef Name="mascota_id" />
+    </Key>
+    <Property Name="mascota_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mascota_owner" Type="int" Nullable="false" />
+    <Property Name="mascota_nivel" Type="int" Nullable="false" />
+    <Property Name="mascota_nombre" Type="varchar" MaxLength="100" />
+    <Property Name="mascota_especie" Type="int" Nullable="false" />
+    <Property Name="mascota_vida_inicial" Type="int" />
+    <Property Name="mascota_mana_inicial" Type="int" />
+    <Property Name="mascota_vida_real" Type="int" />
+    <Property Name="mascota_mana_real" Type="int" />
+    <Property Name="mascota_vida_actual" Type="int" />
+    <Property Name="mascota_mana_actual" Type="int" />
+    <Property Name="mascota_velocidad_inicial" Type="int" />
+    <Property Name="mascota_velocidad_real" Type="int" />
+    <Property Name="mascota_velocidad_actual" Type="int" />
+    <Property Name="mascota_armor_inicial" Type="int" />
+    <Property Name="mascota_armor_real" Type="int" />
+    <Property Name="mascota_armor_actual" Type="int" />
+    <Property Name="mascota_mr_inicial" Type="int" />
+    <Property Name="mascota_mr_real" Type="int" />
+    <Property Name="mascota_mr_actual" Type="int" />
+    <Property Name="mascota_evasion_inicial" Type="int" />
+    <Property Name="mascota_evasion_real" Type="int" />
+    <Property Name="mascota_evasion_actual" Type="int" />
+    <Property Name="mascota_evolucion" Type="bit" />
+    <Property Name="mascota_montura" Type="bit" />
+    <Property Name="mascota_vuela" Type="bit" />
+    <Property Name="mascota_nadar" Type="bit" />
+    <Property Name="mascota_respira_agua" Type="bit" />
+    <Property Name="mascota_capacidad_carga" Type="int" />
+    <Property Name="mascota_peso" Type="int" />
+    <Property Name="mascota_altura" Type="int" />
+    <Property Name="mascota_ancho" Type="int" />
+    <Property Name="mascota_afinidad" Type="int" />
+    <Property Name="mascota_edad" Type="int" />
+  </EntityType>
+  <EntityType Name="mochilas">
+    <Key>
+      <PropertyRef Name="id_mochila" />
+    </Key>
+    <Property Name="id_mochila" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="multiplicador_peso" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="capacidad" Type="int" />
+  </EntityType>
+  <EntityType Name="monstruos">
+    <Key>
+      <PropertyRef Name="mon_id" />
+    </Key>
+    <Property Name="mon_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tier" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="descripcion" Type="varchar(max)" Nullable="false" />
+    <Property Name="vida" Type="int" Nullable="false" />
+    <Property Name="mana" Type="int" Nullable="false" />
+    <Property Name="ataque_basico" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ataque_especial" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="velocidad" Type="int" Nullable="false" />
+    <Property Name="armor" Type="int" Nullable="false" />
+    <Property Name="mr" Type="int" Nullable="false" />
+    <Property Name="evasion" Type="int" Nullable="false" />
+    <Property Name="experiencia" Type="int" Nullable="false" />
+    <Property Name="nombre_imagen" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="party">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_party_pj" Type="int" Nullable="false" />
+    <Property Name="id_pj" Type="int" Nullable="false" />
+    <Property Name="pj_estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="party_cabecera">
+    <Key>
+      <PropertyRef Name="id_party" />
+    </Key>
+    <Property Name="id_party" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_party" Type="varchar" MaxLength="255" />
+    <Property Name="rango_gremio" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="party_mon">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_party_mon" Type="int" Nullable="false" />
+    <Property Name="id_mon" Type="int" Nullable="false" />
+    <Property Name="vida_max" Type="int" />
+    <Property Name="vida_actual" Type="int" />
+    <Property Name="mana_max" Type="int" />
+    <Property Name="mana_actual" Type="int" />
+    <Property Name="mon_estado" Type="int" />
+  </EntityType>
+  <EntityType Name="party_mon_cabecera">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_party_mon" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="personajes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="nivel" Type="int" />
+    <Property Name="raza" Type="int" />
+    <Property Name="clase" Type="int" />
+    <Property Name="atributo" Type="int" />
+    <Property Name="vida_real" Type="int" />
+    <Property Name="energia_real" Type="int" />
+    <Property Name="atk" Type="int" />
+    <Property Name="mag_atk" Type="int" />
+    <Property Name="armor" Type="int" />
+    <Property Name="mr" Type="int" />
+    <Property Name="oro" Type="int" />
+    <Property Name="plata" Type="int" />
+    <Property Name="cobre" Type="int" />
+    <Property Name="vida_actual" Type="int" />
+    <Property Name="energia_actual" Type="int" />
+    <Property Name="fuerza_inicial" Type="int" />
+    <Property Name="fuerza_real" Type="int" />
+    <Property Name="fuerza_actual" Type="int" />
+    <Property Name="intel_ini" Type="int" />
+    <Property Name="intel_real" Type="int" />
+    <Property Name="intel_actual" Type="int" />
+    <Property Name="sab_ini" Type="int" />
+    <Property Name="sab_real" Type="int" />
+    <Property Name="sab_actual" Type="int" />
+    <Property Name="agi_ini" Type="int" />
+    <Property Name="agi_real" Type="int" />
+    <Property Name="agi_actual" Type="int" />
+    <Property Name="res_ini" Type="int" />
+    <Property Name="res_real" Type="int" />
+    <Property Name="res_actual" Type="int" />
+    <Property Name="velocidad_ini" Type="int" />
+    <Property Name="velocidad_real" Type="int" />
+    <Property Name="velocidad_actual" Type="int" />
+    <Property Name="estado" Type="int" />
+    <Property Name="habilitado" Type="bit" Nullable="false" />
+    <Property Name="imagen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="razas">
+    <Key>
+      <PropertyRef Name="id_raza" />
+    </Key>
+    <Property Name="id_raza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="raza_nombre" Type="nvarchar" MaxLength="255" />
+    <Property Name="raza_fuerza" Type="float" />
+    <Property Name="raza_inteligencia" Type="float" />
+    <Property Name="raza_sabiduria" Type="float" />
+    <Property Name="raza_agilidad" Type="float" />
+    <Property Name="raza_resistencia" Type="float" />
+    <Property Name="raza_mult_vida" Type="float" />
+    <Property Name="raza_aspecto" Type="float" />
+    <Property Name="raza_afinidad_dioses" Type="float" />
+    <Property Name="raza_caracteristicas" Type="nvarchar" MaxLength="255" />
+    <Property Name="raza_atributos" Type="nvarchar" MaxLength="255" />
+    <Property Name="raza_imagen" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="skill">
+    <Key>
+      <PropertyRef Name="id_skill" />
+    </Key>
+    <Property Name="id_skill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="skill_nombre" Type="nvarchar" MaxLength="255" />
+    <Property Name="skill_nivel" Type="float" />
+    <Property Name="skill_tipo" Type="nvarchar" MaxLength="255" />
+    <Property Name="skill_atributo" Type="nvarchar" MaxLength="255" />
+    <Property Name="skill_costo" Type="float" />
+    <Property Name="skill_tipo_efecto" Type="nvarchar" MaxLength="255" />
+    <Property Name="skill_danio" Type="nvarchar" MaxLength="255" />
+    <Property Name="skill_dado_basico" Type="nvarchar" MaxLength="255" />
+    <Property Name="skill_requisito" Type="nvarchar" MaxLength="255" />
+    <Property Name="skill_alineamiento" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK_asoc_personaje_item_items">
+    <End Role="items" Type="Self.items" Multiplicity="1" />
+    <End Role="asoc_personaje_item" Type="Self.asoc_personaje_item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="id_item" />
+      </Principal>
+      <Dependent Role="asoc_personaje_item">
+        <PropertyRef Name="id_item" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_asoc_personaje_item_personajes">
+    <End Role="personajes" Type="Self.personajes" Multiplicity="1" />
+    <End Role="asoc_personaje_item" Type="Self.asoc_personaje_item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personajes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="asoc_personaje_item">
+        <PropertyRef Name="id_personaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_asoc_personaje_mochila_mochilas">
+    <End Role="mochilas" Type="Self.mochilas" Multiplicity="1" />
+    <End Role="asoc_personaje_mochila" Type="Self.asoc_personaje_mochila" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mochilas">
+        <PropertyRef Name="id_mochila" />
+      </Principal>
+      <Dependent Role="asoc_personaje_mochila">
+        <PropertyRef Name="id_mochila" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_asoc_personaje_mochila_personajes">
+    <End Role="personajes" Type="Self.personajes" Multiplicity="1" />
+    <End Role="asoc_personaje_mochila" Type="Self.asoc_personaje_mochila" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personajes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="asoc_personaje_mochila">
+        <PropertyRef Name="id_personaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_asoc_personaje_skill_asoc_personaje_skill">
+    <End Role="personajes" Type="Self.personajes" Multiplicity="1" />
+    <End Role="asoc_personaje_skill" Type="Self.asoc_personaje_skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personajes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="asoc_personaje_skill">
+        <PropertyRef Name="id_personaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_asoc_personaje_skill_skill">
+    <End Role="skill" Type="Self.skill" Multiplicity="1" />
+    <End Role="asoc_personaje_skill" Type="Self.asoc_personaje_skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="skill">
+        <PropertyRef Name="id_skill" />
+      </Principal>
+      <Dependent Role="asoc_personaje_skill">
+        <PropertyRef Name="id_skill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_encuentro_party_cabecera">
+    <End Role="party_cabecera" Type="Self.party_cabecera" Multiplicity="1" />
+    <End Role="encuentro" Type="Self.encuentro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="party_cabecera">
+        <PropertyRef Name="id_party" />
+      </Principal>
+      <Dependent Role="encuentro">
+        <PropertyRef Name="id_party_pj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_encuentro_party_mon_cabecera">
+    <End Role="party_mon_cabecera" Type="Self.party_mon_cabecera" Multiplicity="1" />
+    <End Role="encuentro" Type="Self.encuentro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="party_mon_cabecera">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="encuentro">
+        <PropertyRef Name="id_party_mon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_leveleo_personajes">
+    <End Role="personajes" Type="Self.personajes" Multiplicity="0..1" />
+    <End Role="leveleo" Type="Self.leveleo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personajes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="leveleo">
+        <PropertyRef Name="id_personaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mascotas_monstruos">
+    <End Role="monstruos" Type="Self.monstruos" Multiplicity="1" />
+    <End Role="mascotas" Type="Self.mascotas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="monstruos">
+        <PropertyRef Name="mon_id" />
+      </Principal>
+      <Dependent Role="mascotas">
+        <PropertyRef Name="mascota_especie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mascotas_personajes">
+    <End Role="personajes" Type="Self.personajes" Multiplicity="1" />
+    <End Role="mascotas" Type="Self.mascotas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personajes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mascotas">
+        <PropertyRef Name="mascota_owner" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_party_mon_estado">
+    <End Role="estado" Type="Self.estado" Multiplicity="0..1" />
+    <End Role="party_mon" Type="Self.party_mon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estado">
+        <PropertyRef Name="id_estado" />
+      </Principal>
+      <Dependent Role="party_mon">
+        <PropertyRef Name="mon_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_party_mon_monstruos">
+    <End Role="monstruos" Type="Self.monstruos" Multiplicity="1" />
+    <End Role="party_mon" Type="Self.party_mon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="monstruos">
+        <PropertyRef Name="mon_id" />
+      </Principal>
+      <Dependent Role="party_mon">
+        <PropertyRef Name="id_mon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_party_mon_party_mon_cabecera">
+    <End Role="party_mon_cabecera" Type="Self.party_mon_cabecera" Multiplicity="1" />
+    <End Role="party_mon" Type="Self.party_mon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="party_mon_cabecera">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="party_mon">
+        <PropertyRef Name="id_party_mon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_party_party_cabecera">
+    <End Role="party_cabecera" Type="Self.party_cabecera" Multiplicity="1" />
+    <End Role="party" Type="Self.party" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="party_cabecera">
+        <PropertyRef Name="id_party" />
+      </Principal>
+      <Dependent Role="party">
+        <PropertyRef Name="id_party_pj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_party_personajes">
+    <End Role="personajes" Type="Self.personajes" Multiplicity="1" />
+    <End Role="party" Type="Self.party" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personajes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="party">
+        <PropertyRef Name="id_pj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personajes_atributo">
+    <End Role="atributo" Type="Self.atributo" Multiplicity="0..1" />
+    <End Role="personajes" Type="Self.personajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="atributo">
+        <PropertyRef Name="id_atributo" />
+      </Principal>
+      <Dependent Role="personajes">
+        <PropertyRef Name="atributo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personajes_clases">
+    <End Role="clases" Type="Self.clases" Multiplicity="0..1" />
+    <End Role="personajes" Type="Self.personajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clases">
+        <PropertyRef Name="id_clase" />
+      </Principal>
+      <Dependent Role="personajes">
+        <PropertyRef Name="clase" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personajes_estado">
+    <End Role="estado" Type="Self.estado" Multiplicity="0..1" />
+    <End Role="personajes" Type="Self.personajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estado">
+        <PropertyRef Name="id_estado" />
+      </Principal>
+      <Dependent Role="personajes">
+        <PropertyRef Name="estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personajes_razas">
+    <End Role="razas" Type="Self.razas" Multiplicity="0..1" />
+    <End Role="personajes" Type="Self.personajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="razas">
+        <PropertyRef Name="id_raza" />
+      </Principal>
+      <Dependent Role="personajes">
+        <PropertyRef Name="raza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="agregar_a_la_party" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_party" Type="int" Mode="In" />
+    <Parameter Name="id_personaje" Type="int" Mode="In" />
+  </Function>
+  <Function Name="agregar_a_la_party_mon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_party" Type="int" Mode="In" />
+    <Parameter Name="id_mon" Type="int" Mode="In" />
+    <Parameter Name="estado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="buff_up" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="fuerza" Type="int" Mode="In" />
+    <Parameter Name="inteligencia" Type="int" Mode="In" />
+    <Parameter Name="sabiduria" Type="int" Mode="In" />
+    <Parameter Name="agilidad" Type="int" Mode="In" />
+    <Parameter Name="resistencia" Type="int" Mode="In" />
+    <Parameter Name="velocidad" Type="int" Mode="In" />
+  </Function>
+  <Function Name="crear_asignacion_item" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_personaje" Type="int" Mode="In" />
+    <Parameter Name="id_item" Type="int" Mode="In" />
+    <Parameter Name="cantidad" Type="int" Mode="In" />
+    <Parameter Name="equipado" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="crear_asignacion_mochila" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_personaje" Type="int" Mode="In" />
+    <Parameter Name="id_mochila" Type="int" Mode="In" />
+    <Parameter Name="peso_ocupado" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="crear_asignacion_skill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_personaje" Type="int" Mode="In" />
+    <Parameter Name="id_skill" Type="int" Mode="In" />
+  </Function>
+  <Function Name="descontar_mana_mon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_party_mon_id" Type="int" Mode="In" />
+    <Parameter Name="mana" Type="int" Mode="In" />
+  </Function>
+  <Function Name="economia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="tipo" Type="varchar" Mode="In" />
+    <Parameter Name="oro" Type="int" Mode="In" />
+    <Parameter Name="plata" Type="int" Mode="In" />
+    <Parameter Name="cobre" Type="int" Mode="In" />
+  </Function>
+  <Function Name="eliminar_asignacion_mochila" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_asoc" Type="int" Mode="In" />
+  </Function>
+  <Function Name="eliminar_miembro_party_mon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="equip_un" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_asoc" Type="int" Mode="In" />
+  </Function>
+  <Function Name="equip_un_mochila" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_pj" Type="int" Mode="In" />
+  </Function>
+  <Function Name="estadistica_update_actual" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="estadistica" Type="varchar" Mode="In" />
+    <Parameter Name="valor_nuevo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="estadistica_update_real" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="estadistica" Type="varchar" Mode="In" />
+    <Parameter Name="valor_nuevo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_atributos_calculadora" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pj_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_items" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_pj" Type="int" Mode="In" />
+    <Parameter Name="categoria" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="get_lvl_up" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_mascotas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_pj" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_numeros_pj_calculadora" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_pj" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_peso_mochila" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_pj" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_peso_total" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_pj" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_skills" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_pj" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_skills_listado_resumido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="impactar_danio_a_mon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_party_mon_id" Type="int" Mode="In" />
+    <Parameter Name="es_skill" Type="bit" Mode="In" />
+    <Parameter Name="tipo_danio" Type="int" Mode="In" />
+    <Parameter Name="agi_pj" Type="int" Mode="In" />
+    <Parameter Name="vel_pj" Type="int" Mode="In" />
+    <Parameter Name="danio_pj_basico" Type="int" Mode="In" />
+    <Parameter Name="dado_prec" Type="int" Mode="In" />
+    <Parameter Name="danio_skill" Type="int" Mode="In" />
+    <Parameter Name="es_magico" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="impactar_danio_a_pj" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_pj" Type="int" Mode="In" />
+    <Parameter Name="es_skill" Type="bit" Mode="In" />
+    <Parameter Name="tipo_danio" Type="int" Mode="In" />
+    <Parameter Name="tier" Type="int" Mode="In" />
+    <Parameter Name="vel_mon" Type="int" Mode="In" />
+    <Parameter Name="danio_mon_basico" Type="int" Mode="In" />
+    <Parameter Name="dado_prec" Type="int" Mode="In" />
+    <Parameter Name="danio_skill" Type="int" Mode="In" />
+    <Parameter Name="es_magico" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="jugadores_con_monedero" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="lvl_up" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="fuerza" Type="int" Mode="In" />
+    <Parameter Name="inteligencia" Type="int" Mode="In" />
+    <Parameter Name="sabiduria" Type="int" Mode="In" />
+    <Parameter Name="agilidad" Type="int" Mode="In" />
+    <Parameter Name="resistencia" Type="int" Mode="In" />
+    <Parameter Name="velocidad" Type="int" Mode="In" />
+  </Function>
+  <Function Name="modificar_asignacion_mochila" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_asoc" Type="int" Mode="In" />
+    <Parameter Name="id_personaje" Type="int" Mode="In" />
+    <Parameter Name="id_mochila" Type="int" Mode="In" />
+    <Parameter Name="peso_ocupado" Type="numeric" Mode="In" />
+    <Parameter Name="equipado" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="modificar_miembro_party_mon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="vida_resta" Type="int" Mode="In" />
+    <Parameter Name="mana_resta" Type="int" Mode="In" />
+    <Parameter Name="estado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="personaje_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="raza" Type="int" Mode="In" />
+    <Parameter Name="clase" Type="int" Mode="In" />
+    <Parameter Name="atributo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="personajes_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="personajes_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="nivel" Type="int" Mode="In" />
+    <Parameter Name="raza" Type="int" Mode="In" />
+    <Parameter Name="clase" Type="int" Mode="In" />
+    <Parameter Name="atributo" Type="int" Mode="In" />
+    <Parameter Name="vida_real" Type="int" Mode="In" />
+    <Parameter Name="energia_real" Type="int" Mode="In" />
+    <Parameter Name="atk" Type="int" Mode="In" />
+    <Parameter Name="mag_atk" Type="int" Mode="In" />
+    <Parameter Name="armor" Type="int" Mode="In" />
+    <Parameter Name="mr" Type="int" Mode="In" />
+    <Parameter Name="oro" Type="int" Mode="In" />
+    <Parameter Name="plata" Type="int" Mode="In" />
+    <Parameter Name="cobre" Type="int" Mode="In" />
+    <Parameter Name="vida_actual" Type="int" Mode="In" />
+    <Parameter Name="energia_actual" Type="int" Mode="In" />
+    <Parameter Name="fuerza_inicial" Type="int" Mode="In" />
+    <Parameter Name="fuerza_real" Type="int" Mode="In" />
+    <Parameter Name="fuerza_actual" Type="int" Mode="In" />
+    <Parameter Name="intel_ini" Type="int" Mode="In" />
+    <Parameter Name="intel_real" Type="int" Mode="In" />
+    <Parameter Name="intel_actual" Type="int" Mode="In" />
+    <Parameter Name="sab_ini" Type="int" Mode="In" />
+    <Parameter Name="sab_real" Type="int" Mode="In" />
+    <Parameter Name="sab_actual" Type="int" Mode="In" />
+    <Parameter Name="agi_ini" Type="int" Mode="In" />
+    <Parameter Name="agi_real" Type="int" Mode="In" />
+    <Parameter Name="agi_actual" Type="int" Mode="In" />
+    <Parameter Name="res_ini" Type="int" Mode="In" />
+    <Parameter Name="res_real" Type="int" Mode="In" />
+    <Parameter Name="res_actual" Type="int" Mode="In" />
+    <Parameter Name="velocidad_ini" Type="int" Mode="In" />
+    <Parameter Name="velocidad_real" Type="int" Mode="In" />
+    <Parameter Name="velocidad_actual" Type="int" Mode="In" />
+    <Parameter Name="estado" Type="int" Mode="In" />
+    <Parameter Name="habilitado" Type="bit" Mode="In" />
+    <Parameter Name="imagen" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="select_pj" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_party" Type="int" Mode="In" />
+  </Function>
+  <Function Name="skill_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="skill_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="skill_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="skill_nombre" Type="varchar" Mode="In" />
+    <Parameter Name="skill_nivel" Type="float" Mode="In" />
+    <Parameter Name="skill_tipo" Type="varchar" Mode="In" />
+    <Parameter Name="skill_atributo" Type="varchar" Mode="In" />
+    <Parameter Name="skill_costo" Type="float" Mode="In" />
+    <Parameter Name="skill_tipo_efecto" Type="varchar" Mode="In" />
+    <Parameter Name="skill_danio" Type="varchar" Mode="In" />
+    <Parameter Name="skill_dado_basico" Type="varchar" Mode="In" />
+    <Parameter Name="skill_requisito" Type="varchar" Mode="In" />
+    <Parameter Name="skill_alineamiento" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="skill_up_use" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="skill_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="skill_id" Type="int" Mode="In" />
+    <Parameter Name="skill_nombre" Type="varchar" Mode="In" />
+    <Parameter Name="skill_nivel" Type="float" Mode="In" />
+    <Parameter Name="skill_tipo" Type="varchar" Mode="In" />
+    <Parameter Name="skill_atributo" Type="varchar" Mode="In" />
+    <Parameter Name="skill_costo" Type="float" Mode="In" />
+    <Parameter Name="skill_tipo_efecto" Type="varchar" Mode="In" />
+    <Parameter Name="skill_danio" Type="varchar" Mode="In" />
+    <Parameter Name="skill_dado_basico" Type="varchar" Mode="In" />
+    <Parameter Name="skill_requisito" Type="varchar" Mode="In" />
+    <Parameter Name="skill_alineamiento" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sugerir_activas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="clase_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sugerir_pasivas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="clase_id" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="RollModelStoreContainer">
+    <EntitySet Name="asoc_personaje_item" EntityType="Self.asoc_personaje_item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="asoc_personaje_skill" EntityType="Self.asoc_personaje_skill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="atributo" EntityType="Self.atributo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="clases" EntityType="Self.clases" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="encuentro" EntityType="Self.encuentro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="estado" EntityType="Self.estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="items" EntityType="Self.items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="leveleo" EntityType="Self.leveleo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mascotas" EntityType="Self.mascotas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mochilas" EntityType="Self.mochilas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="monstruos" EntityType="Self.monstruos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="party" EntityType="Self.party" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="party_cabecera" EntityType="Self.party_cabecera" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="party_mon" EntityType="Self.party_mon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="party_mon_cabecera" EntityType="Self.party_mon_cabecera" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="personajes" EntityType="Self.personajes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="razas" EntityType="Self.razas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="skill" EntityType="Self.skill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="asoc_personaje_mochila" EntityType="Self.asoc_personaje_mochila" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [asoc_personaje_mochila].[id_asoc] AS [id_asoc], 
+    [asoc_personaje_mochila].[id_personaje] AS [id_personaje], 
+    [asoc_personaje_mochila].[id_mochila] AS [id_mochila], 
+    [asoc_personaje_mochila].[peso_ocupado] AS [peso_ocupado], 
+    [asoc_personaje_mochila].[equipado] AS [equipado]
+    FROM [dbo].[asoc_personaje_mochila] AS [asoc_personaje_mochila]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_asoc_personaje_item_items" Association="Self.FK_asoc_personaje_item_items">
+      <End Role="items" EntitySet="items" />
+      <End Role="asoc_personaje_item" EntitySet="asoc_personaje_item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_asoc_personaje_item_personajes" Association="Self.FK_asoc_personaje_item_personajes">
+      <End Role="personajes" EntitySet="personajes" />
+      <End Role="asoc_personaje_item" EntitySet="asoc_personaje_item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_asoc_personaje_mochila_mochilas" Association="Self.FK_asoc_personaje_mochila_mochilas">
+      <End Role="mochilas" EntitySet="mochilas" />
+      <End Role="asoc_personaje_mochila" EntitySet="asoc_personaje_mochila" />
+    </AssociationSet>
+    <AssociationSet Name="FK_asoc_personaje_mochila_personajes" Association="Self.FK_asoc_personaje_mochila_personajes">
+      <End Role="personajes" EntitySet="personajes" />
+      <End Role="asoc_personaje_mochila" EntitySet="asoc_personaje_mochila" />
+    </AssociationSet>
+    <AssociationSet Name="FK_asoc_personaje_skill_asoc_personaje_skill" Association="Self.FK_asoc_personaje_skill_asoc_personaje_skill">
+      <End Role="personajes" EntitySet="personajes" />
+      <End Role="asoc_personaje_skill" EntitySet="asoc_personaje_skill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_asoc_personaje_skill_skill" Association="Self.FK_asoc_personaje_skill_skill">
+      <End Role="skill" EntitySet="skill" />
+      <End Role="asoc_personaje_skill" EntitySet="asoc_personaje_skill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_encuentro_party_cabecera" Association="Self.FK_encuentro_party_cabecera">
+      <End Role="party_cabecera" EntitySet="party_cabecera" />
+      <End Role="encuentro" EntitySet="encuentro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_encuentro_party_mon_cabecera" Association="Self.FK_encuentro_party_mon_cabecera">
+      <End Role="party_mon_cabecera" EntitySet="party_mon_cabecera" />
+      <End Role="encuentro" EntitySet="encuentro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_leveleo_personajes" Association="Self.FK_leveleo_personajes">
+      <End Role="personajes" EntitySet="personajes" />
+      <End Role="leveleo" EntitySet="leveleo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mascotas_monstruos" Association="Self.FK_mascotas_monstruos">
+      <End Role="monstruos" EntitySet="monstruos" />
+      <End Role="mascotas" EntitySet="mascotas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mascotas_personajes" Association="Self.FK_mascotas_personajes">
+      <End Role="personajes" EntitySet="personajes" />
+      <End Role="mascotas" EntitySet="mascotas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_party_mon_estado" Association="Self.FK_party_mon_estado">
+      <End Role="estado" EntitySet="estado" />
+      <End Role="party_mon" EntitySet="party_mon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_party_mon_monstruos" Association="Self.FK_party_mon_monstruos">
+      <End Role="monstruos" EntitySet="monstruos" />
+      <End Role="party_mon" EntitySet="party_mon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_party_mon_party_mon_cabecera" Association="Self.FK_party_mon_party_mon_cabecera">
+      <End Role="party_mon_cabecera" EntitySet="party_mon_cabecera" />
+      <End Role="party_mon" EntitySet="party_mon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_party_party_cabecera" Association="Self.FK_party_party_cabecera">
+      <End Role="party_cabecera" EntitySet="party_cabecera" />
+      <End Role="party" EntitySet="party" />
+    </AssociationSet>
+    <AssociationSet Name="FK_party_personajes" Association="Self.FK_party_personajes">
+      <End Role="personajes" EntitySet="personajes" />
+      <End Role="party" EntitySet="party" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personajes_atributo" Association="Self.FK_personajes_atributo">
+      <End Role="atributo" EntitySet="atributo" />
+      <End Role="personajes" EntitySet="personajes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personajes_clases" Association="Self.FK_personajes_clases">
+      <End Role="clases" EntitySet="clases" />
+      <End Role="personajes" EntitySet="personajes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personajes_estado" Association="Self.FK_personajes_estado">
+      <End Role="estado" EntitySet="estado" />
+      <End Role="personajes" EntitySet="personajes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personajes_razas" Association="Self.FK_personajes_razas">
+      <End Role="razas" EntitySet="razas" />
+      <End Role="personajes" EntitySet="personajes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
